@@ -1,21 +1,28 @@
 import { ADMINISTRATION_SYMBOL } from '../definitions/constants'
+import { Listener } from '../definitions/interfaces'
 import { ModuleLogger } from '../loggers/module.logger'
-import { ProxyObservable } from './proxy.observable'
 
 export class Administration<T extends object> {
   dispatchers: Function[]
+  listeners: Listener<any>[]
   keys: (keyof T)[]
   proxy: T
 
-  constructor(target: T, keys: (keyof T)[]) {
-    let clone: T
-
-    clone = { ...target }
-    ProxyObservable.setRecursive(target, clone, keys)
-
+  constructor(keys: (keyof T)[], proxy: T) {
     this.dispatchers = []
+    this.listeners = []
     this.keys = keys
-    this.proxy = new Proxy(clone, ProxyObservable.getHandler(target))
+    this.proxy = proxy
+  }
+
+  static listen<T extends object, U>(root: T, target: U, p: string, value: any): void {
+    // let administration: Administration<T> | undefined, listeners: Listener<U, any>[]
+    // administration = Administration.get(root)
+    // if (!administration) return
+    // listeners = administration.listeners.filter((v: Listener<any, any>) => v.key === p && v.target === target)
+    // if (listeners.length <= 0) return
+    // listeners.forEach((v: Listener<U, any>) => v.effect(value))
+    // ModuleLogger.verbose('Administration', 'dispatch', `The listeners have been executed.`, listeners)
   }
 
   static dispatch<T extends object>(target: T): void {

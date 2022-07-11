@@ -8,25 +8,23 @@ export function useObserver(fn: () => ReactNode, stores: object[]): ReactElement
 
   const onMount = () => {
     stores.forEach((v: object) => {
-      let administration: Administration<object>
+      let administration: Administration<object> | undefined
 
       administration = Administration.get(v)
-      if (administration.dispatchers.includes(dispatch)) return
+      if (!administration || administration.dispatchers.includes(dispatch)) return
 
       administration.dispatchers.push(dispatch)
-
-      // console.log(Administration.get(v))
     })
   }
 
   const onUnmount = () => {
     stores.forEach((v: object) => {
-      let administration: Administration<object>
+      let administration: Administration<object> | undefined
 
       administration = Administration.get(v)
-      administration.dispatchers = ArrayUtils.remove(Administration.get(v).dispatchers, (v: Function) => v === dispatch)
+      if (!administration) return
 
-      // console.log(Administration.get(v).dispatchers)
+      administration.dispatchers = ArrayUtils.remove(administration.dispatchers, (v: Function) => v === dispatch)
     })
   }
 
