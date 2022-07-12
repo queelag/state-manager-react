@@ -1,38 +1,52 @@
+import { Watcher } from '../classes/watcher'
 import { ADMINISTRATION_SYMBOL } from '../definitions/constants'
-import { Listener } from '../definitions/interfaces'
+import { WatcherType } from '../definitions/enums'
 import { ModuleLogger } from '../loggers/module.logger'
 
-export class Administration<T extends object> {
-  dispatchers: Function[]
-  listeners: Listener<any>[]
-  keys: (keyof T)[]
+export class Administration<T extends object, K extends keyof T = keyof T> {
+  keys: K[]
   proxy: T
+  watchers: Watcher[]
 
-  constructor(keys: (keyof T)[], proxy: T) {
-    this.dispatchers = []
-    this.listeners = []
+  constructor(keys: K[], proxy: T) {
     this.keys = keys
     this.proxy = proxy
+    this.watchers = []
   }
 
-  static listen<T extends object, U>(root: T, target: U, p: string, value: any): void {
-    // let administration: Administration<T> | undefined, listeners: Listener<U, any>[]
-    // administration = Administration.get(root)
-    // if (!administration) return
-    // listeners = administration.listeners.filter((v: Listener<any, any>) => v.key === p && v.target === target)
-    // if (listeners.length <= 0) return
-    // listeners.forEach((v: Listener<U, any>) => v.effect(value))
-    // ModuleLogger.verbose('Administration', 'dispatch', `The listeners have been executed.`, listeners)
-  }
+  static onChange<T extends object, U>(target: T): void {
+    Administration.with(target, (administration: Administration<T>) => {
+      let autoruns: Watcher<U>[], dispatchers: Watcher<U>[], reactions: Watcher<U>[], when: Watcher<U>[]
 
-  static dispatch<T extends object>(target: T): void {
-    let administration: Administration<T> | undefined
+      autoruns = administration.watchers.filter((v: Watcher<U>) => v.type === WatcherType.AUTORUN)
+      autoruns.forEach((v: Watcher<U>) => {
+        v.autorun.effect()
+        ModuleLogger.verbose('Administration', 'onChange', `The autorun effect has been executed.`, v)
+      })
 
-    administration = Administration.get(target)
-    if (!administration) return
+      dispatchers = administration.watchers.filter((v: Watcher<U>) => v.type === WatcherType.DISPATCH)
+      dispatchers.forEach((v: Watcher<U>) => {
+        v.dispatch.effect()
+        ModuleLogger.verbose('Administration', 'onChange', `The dispatch effect has been executed.`, v)
+      })
 
-    administration.dispatchers.forEach((v: Function) => v())
-    ModuleLogger.verbose('Administration', 'dispatch', `The dispatchers have been executed.`, administration.dispatchers)
+      reactions = administration.watchers.filter((v: Watcher<U>) => v.reaction.value !== v.reaction.expression() && v.type === WatcherType.REACTION)
+      reactions.forEach((v: Watcher<U>) => {
+        v.reaction.value = v.reaction.expression()
+        v.reaction.effect(v.reaction.value)
+
+        ModuleLogger.verbose('Administration', 'onChange', `The reaction effect has been executed.`, v)
+      })
+
+      when = administration.watchers.filter((v: Watcher<U>) => v.when.value !== v.when.predicate() && v.type === WatcherType.WHEN)
+      when.forEach((v: Watcher<U>) => {
+        v.when.value = v.when.predicate()
+        if (!v.when.value) return
+
+        v.when.effect()
+        ModuleLogger.verbose('Administration', 'onChange', `The when effect has been executed.`, v)
+      })
+    })
   }
 
   static get<T extends object>(target: T): Administration<T> | undefined {
@@ -45,5 +59,14 @@ export class Administration<T extends object> {
 
   static isNotDefined<T extends object>(target: T): boolean {
     return !this.isDefined(target)
+  }
+
+  static with<T extends object>(target: T, fn: (administration: Administration<T>) => any, fallback: any = undefined) {
+    let administration: Administration<T> | undefined
+
+    administration = Administration.get(target)
+    if (!administration) return fallback
+
+    return fn(administration)
   }
 }

@@ -1,3 +1,5 @@
 module.exports = {
-  preset: 'ts-jest'
+  setupFiles: ['<rootDir>/mocks/nanoid.js'],
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom'
 }

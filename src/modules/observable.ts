@@ -1,11 +1,106 @@
+import { ArrayUtils, noop } from '@queelag/core'
+import { Watcher } from '../classes/watcher'
 import { ADMINISTRATION_SYMBOL } from '../definitions/constants'
-import { Listener, ListenerEffect, ListenerExpression } from '../definitions/interfaces'
+import { WatcherType } from '../definitions/enums'
+import {
+  WatcherAutorunEffect,
+  WatcherDispatchEffect,
+  WatcherDisposer,
+  WatcherReactionEffect,
+  WatcherReactionExpression,
+  WatcherWhenEffect,
+  WatcherWhenPredicate
+} from '../definitions/types'
 import { ModuleLogger } from '../loggers/module.logger'
 import { Administration } from './administration'
+import { ObservableMap } from './observable.map'
+import { ObservableSet } from './observable.set'
 
 export class Observable {
-  static make<T extends object>(target: T, keys: (keyof T)[]): T {
+  static watch<T extends object, U>(type: WatcherType.AUTORUN, effect: WatcherAutorunEffect, target: T): WatcherDisposer
+  static watch<T extends object, U>(type: WatcherType.DISPATCH, effect: WatcherDispatchEffect, target: T): WatcherDisposer
+  static watch<T extends object, U>(
+    type: WatcherType.REACTION,
+    expression: WatcherReactionExpression<U>,
+    effect: WatcherReactionEffect<U>,
+    target: T
+  ): WatcherDisposer
+  static watch<T extends object, U>(type: WatcherType.WHEN, predicate: WatcherWhenPredicate, effect: WatcherWhenEffect, target: T): WatcherDisposer
+  static watch<T extends object, U>(type: WatcherType, ...args: any): WatcherDisposer {
+    let target: T
+
+    switch (type) {
+      case WatcherType.AUTORUN:
+      case WatcherType.DISPATCH:
+        target = args[1]
+        break
+      case WatcherType.REACTION:
+      case WatcherType.WHEN:
+        target = args[2]
+        break
+    }
+
+    return Administration.with(
+      target,
+      (administration: Administration<T>) => {
+        let disposer: (watcher: Watcher<U>) => WatcherDisposer, watcher: Watcher<U> | undefined
+
+        disposer = (watcher: Watcher<U>) => () => {
+          administration.watchers = ArrayUtils.remove(administration.watchers, (v: Watcher) => v === watcher)
+          ModuleLogger.verbose('Observable', 'watch', 'disposer', `The watcher has been disposed of.`, watcher)
+        }
+
+        switch (type) {
+          case WatcherType.AUTORUN:
+            watcher = administration.watchers.find((v: Watcher) => v.autorun.effect === args[0] && v.type === type)
+            break
+          case WatcherType.DISPATCH:
+            watcher = administration.watchers.find((v: Watcher) => v.dispatch.effect === args[0] && v.type === type)
+            break
+          case WatcherType.REACTION:
+            watcher = administration.watchers.find((v: Watcher) => v.reaction.effect === args[1] && v.reaction.expression === args[0] && v.type === type)
+            break
+          case WatcherType.WHEN:
+            watcher = administration.watchers.find((v: Watcher) => v.when.effect === args[1] && v.when.predicate === args[0] && v.type === type)
+            break
+        }
+
+        if (watcher) {
+          ModuleLogger.warn('Observable', 'watch', `This watcher already exists.`, watcher)
+          return disposer(watcher)
+        }
+
+        switch (type) {
+          case WatcherType.AUTORUN:
+            watcher = new Watcher(type, args[0])
+            break
+          case WatcherType.DISPATCH:
+            watcher = new Watcher(type, args[0])
+            break
+          case WatcherType.REACTION:
+            watcher = new Watcher(type, args[1], args[0])
+            break
+          case WatcherType.WHEN:
+            watcher = new Watcher(type, args[1], args[0])
+            break
+        }
+
+        administration.watchers.push(watcher)
+        ModuleLogger.verbose('Observable', 'watch', `The watcher has been pushed.`, watcher)
+
+        return disposer(watcher)
+      },
+      noop
+    )
+  }
+
+  static make<T extends object, K extends keyof T>(target: T, keys: K[]): T {
     let clone: T, proxy: T
+
+    if (Administration.isDefined(target)) {
+      ModuleLogger.warn('Observable', 'make', `The target is already an observable.`, target)
+      return target
+    }
 
     clone = { ...target }
     Observable.makeProperties(target, clone, keys)
@@ -13,122 +108,62 @@ export class Observable {
     proxy = new Proxy(clone, Observable.getProxyHandler(target))
     Reflect.set(target, ADMINISTRATION_SYMBOL, new Administration(keys, proxy))
 
-    keys.forEach((k: keyof T) => {
-      Object.defineProperty(target, k, Observable.getPropertyDescriptor(target, k))
-    })
+    keys.forEach((k: keyof T) => Object.defineProperty(target, k, Observable.getPropertyDescriptor(target, k)))
 
     return target
   }
 
-  static listen<T extends object, U>(root: T, expression: ListenerExpression<U>, effect: ListenerEffect<U>): Listener<U> | Error {
-    let administration: Administration<T> | undefined, listener: Listener<U> | undefined
-
-    administration = Administration.get(root)
-    if (!administration) return new Error()
-
-    listener = administration.listeners.find((v: Listener<any>) => v.effect === effect && v.expression === expression)
-    if (listener) return listener
-
-    listener = {
-      effect,
-      expression
-    }
-
-    administration.listeners.push(listener)
-    ModuleLogger.verbose('Observable', 'listen', `The listener has been pushed.`, listener)
-
-    return listener
-  }
-
-  private static makeProperties<T extends object, U extends object>(root: T, target: U, keys: (keyof U)[]) {
-    keys.forEach((k: keyof U) => {
+  private static makeProperties<T extends object, U extends object, K extends keyof U>(root: T, target: U, keys: K[]) {
+    keys.forEach((k: K) => {
       let property: any, proxy: any
 
       property = Reflect.get(target, k)
       if (typeof property !== 'object' || property === null) return
 
-      switch (true) {
-        case property instanceof Date:
-          return
+      if (Observable.isNotProxiable(property)) {
+        return
       }
 
       Observable.makeProperties(root, property, Object.keys(property))
 
-      if (property.isProxy) {
+      if (Observable.isProxy(property)) {
         return
       }
 
       proxy = new Proxy(property, Observable.getProxyHandler(root))
 
       switch (true) {
-        case property instanceof Map:
-          let m: Map<any, any>, mc: () => void, md: (k: string) => boolean, ms: (k: string, v: any) => Map<any, any>
-
-          m = proxy
-          mc = m.clear
-          md = m.delete
-          ms = m.set
-
-          m.clear = () => {
-            mc()
-            Administration.dispatch(root)
-          }
-          m.delete = (k: any) => {
-            let b: boolean
-
-            b = md(k)
-            if (!b) return false
-
-            Administration.dispatch(root)
-
-            return true
-          }
-          m.set = (k: any, v: any) => {
-            let m: Map<any, any>
-
-            m = ms(k, v)
-            Administration.dispatch(root)
-
-            return m
-          }
-
+        case proxy instanceof Map:
+          ObservableMap.make(root, proxy)
           break
-        case property instanceof Set:
-          let s: Set<any>, sa: (v: any) => Set<any>, sc: () => void, sd: (v: any) => boolean
-
-          s = proxy
-          sa = s.add
-          sc = s.clear
-          sd = s.delete
-
-          s.add = (v: any) => {
-            let s: Set<any>
-
-            s = sa(v)
-            Administration.dispatch(root)
-
-            return s
-          }
-          s.clear = () => {
-            sc()
-            Administration.dispatch(root)
-          }
-          s.delete = (v: any) => {
-            let b: boolean
-
-            b = sd(v)
-            if (!b) return false
-
-            Administration.dispatch(root)
-
-            return true
-          }
-
+        case proxy instanceof Set:
+          ObservableSet.make(root, proxy)
           break
       }
 
       Reflect.set(target, k, proxy)
     })
+  }
+
+  private static getPropertyDescriptor<T extends object>(target: T, key: keyof T): PropertyDescriptor {
+    return {
+      get: () => {
+        let administration: Administration<T> | undefined
+
+        administration = Administration.get(target)
+        if (!administration) return undefined
+
+        return Reflect.get(administration.proxy, key)
+      },
+      set: (value: any) => {
+        let administration: Administration<T> | undefined
+
+        administration = Administration.get(target)
+        if (!administration) return false
+
+        Reflect.set(administration.proxy, key, value)
+      }
+    }
   }
 
   private static getProxyHandler<T extends object, U extends object>(root: T): ProxyHandler<U> {
@@ -155,28 +190,27 @@ export class Observable {
         return property
       },
       set: (target: U, p: string, value: any, receiver: any) => {
-        let set: boolean, proxy: any
+        let property: any, set: boolean
 
         if (p === 'isProxy') {
           return false
         }
 
+        property = Reflect.get(target, p)
+        if (property === value) return true
+
         switch (typeof value) {
           case 'object':
-            if (value.isProxy) {
+            if (Observable.isProxy(value) || Observable.isNotProxiable(value)) {
               break
             }
 
-            if (value instanceof Date) {
-              break
-            }
-
-            proxy = new Proxy(value, Observable.getProxyHandler(root))
+            value = new Proxy(value, Observable.getProxyHandler(root))
 
             break
         }
 
-        set = Reflect.set(target, p, proxy || value, receiver)
+        set = Reflect.set(target, p, value, receiver)
         if (!set) return false
 
         if (Administration.isNotDefined(root)) {
@@ -184,33 +218,33 @@ export class Observable {
         }
 
         ModuleLogger.verbose('ProxyObservable', 'getHandler', 'set', `The value has been set.`, [target, p, value])
-
-        Administration.dispatch(root)
-        Administration.listen(root, target, p, value)
+        Administration.onChange(root)
 
         return true
       }
     }
   }
 
-  private static getPropertyDescriptor<T extends object>(target: T, key: keyof T): PropertyDescriptor {
-    return {
-      get: () => {
-        let administration: Administration<T> | undefined
-
-        administration = Administration.get(target)
-        if (!administration) return undefined
-
-        return Reflect.get(administration.proxy, key)
-      },
-      set: (value: any) => {
-        let administration: Administration<T> | undefined
-
-        administration = Administration.get(target)
-        if (!administration) return false
-
-        Reflect.set(administration.proxy, key, value)
-      }
+  private static isProxiable(property: any): boolean {
+    if (!property.toString) {
+      return false
     }
+
+    switch (property.toString()) {
+      case '[object Object]':
+      case '[object Map]':
+      case '[object Set]':
+        return true
+      default:
+        return false
+    }
+  }
+
+  private static isNotProxiable(property: any): boolean {
+    return this.isProxiable(property) === false
+  }
+
+  private static isProxy(property: any): boolean {
+    return property.isProxy
   }
 }

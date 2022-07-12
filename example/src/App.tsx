@@ -1,70 +1,48 @@
-import React, { useEffect } from 'react'
-import { Observable, observer } from '../../src'
-
-const store: any = {
-  /**
-   * PRIMITIVES
-   */
-  array: [0],
-  bigint: BigInt(0),
-  boolean: false,
-  function: () => undefined,
-  map: new Map(),
-  null: null,
-  number: 0,
-  object: {
-    a: 0,
-    b: {
-      c: {
-        d: 0
-      }
-    }
-  },
-  set: new Set(),
-  symbol: Symbol('symbol'),
-  undefined: undefined,
-  /**
-   * CLASSES
-   */
-  date: new Date()
-}
-
-Observable.make(store, Object.keys(store))
-
-Observable.listen<any, number>(
-  store,
-  () => store.object.a,
-  (value: number) => {
-    console.log('LISTENER', value)
-  }
-)
+import React from 'react'
+import { observer, useAutorun, useReaction, useWhen } from '../../src'
+import { store } from './store'
 
 export const App = observer(() => {
-  useEffect(() => {
-    console.log(store)
+  useAutorun(() => {
+    console.log('autorun')
+  }, store)
 
-    // @ts-ignore
-    window.store = store
-  }, [])
+  useReaction(
+    () => store.map.get(0),
+    () => {
+      console.log('store.map', store.map)
+    },
+    store
+  )
+
+  useWhen(
+    () => store.boolean,
+    () => {
+      console.log('store.boolean is true', store.boolean)
+    },
+    store
+  )
 
   return (
     <div style={{ alignItems: 'flex-start', display: 'flex', flexDirection: 'column' }}>
+      <h2>Primitives</h2>
       <span>array: {JSON.stringify(store.array)}</span>
-      <span>array[0]: {store.array[0]}</span>
       <span>bigint: {store.bigint.toString()}</span>
       <span>boolean: {store.boolean.toString()}</span>
       <span>function: {store.function.toString()}</span>
-      <span>map: {JSON.stringify([...store.map.entries()])}</span>
       <span>null: {store.null}</span>
       <span>number: {store.number}</span>
       <span>object: {JSON.stringify(store.object)}</span>
-      <span>object.a: {store.object.a}</span>
-      <span>object.b: {JSON.stringify(store.object.b)}</span>
-      <span>set: {JSON.stringify([...store.set.entries()])}</span>
       <span>symbol: {store.symbol.toString()}</span>
       <span>undefined: {store.undefined}</span>
       <br />
-      <span>date: {store.date.toISOString()}</span>
+      <h2>Classes</h2>
+      <span>date: {store.date.toString()}</span>
+      <span>map: {JSON.stringify([...store.map.entries()])}</span>
+      <span>set: {JSON.stringify([...store.set.entries()])}</span>
+      <br />
+      <h2>Libraries</h2>
+      <span>dayjs: {store.dayjs.toString()}</span>
     </div>
   )
 }, [store])

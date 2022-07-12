@@ -1,3 +1,9 @@
-import { ListenerEffect, ListenerExpression } from '../definitions/interfaces'
+import { useEffect } from 'react'
+import { WatcherReactionEffect, WatcherReactionExpression } from '../definitions/types'
+import { reaction } from '../modules/reaction'
 
-export function useReaction<T>(expression: ListenerExpression<T>, effect: ListenerEffect<T>) {}
+export function useReaction<T extends object, U>(expression: WatcherReactionExpression<U>, effect: WatcherReactionEffect<U>, target: T) {
+  useEffect(() => {
+    return reaction(expression, effect, target)
+  }, [])
+}

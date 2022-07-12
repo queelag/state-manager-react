@@ -1,7 +1,21 @@
-export interface Listener<T> {
-  effect: ListenerEffect<T>
-  expression: ListenerExpression<T>
+import { WatcherAutorunEffect, WatcherDispatchEffect, WatcherReactionEffect, WatcherReactionExpression, WatcherWhenEffect, WatcherWhenPredicate } from './types'
+
+export interface WatcherAutorun {
+  effect: WatcherAutorunEffect
 }
 
-export type ListenerEffect<T> = (value: T) => any
-export type ListenerExpression<T> = () => T
+export interface WatcherDispatch {
+  effect: WatcherDispatchEffect
+}
+
+export interface WatcherReaction<T> {
+  effect: WatcherReactionEffect<T>
+  expression: WatcherReactionExpression<T>
+  value: T
+}
+
+export interface WatcherWhen {
+  effect: WatcherWhenEffect
+  predicate: WatcherWhenPredicate
+  value: boolean
+}
