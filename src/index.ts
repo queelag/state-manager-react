@@ -1,4 +1,5 @@
 export { Observer } from './components/Observer'
+export { ComponentLifeCycle, WatcherType } from './definitions/enums'
 export { observer } from './hocs/observer'
 export { useAutorun } from './hooks/use.autorun'
 export { useDispatch } from './hooks/use.dispatch'
