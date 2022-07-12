@@ -11,7 +11,7 @@ export function useObserver(fn: () => ReactNode, targets: object[]): ReactElemen
     let disposers: WatcherDisposer[]
 
     disposers = targets.map((v: object) => Observable.watch(WatcherType.DISPATCH, dispatch, v))
-    if (disposers.length <= 0) return
+    // if (disposers.length <= 0) return
 
     return () => disposers.forEach((v: WatcherDisposer) => v())
   }, [targets])

@@ -1,8 +1,8 @@
 import { Environment } from '@queelag/core'
 import dayjs, { Dayjs } from 'dayjs'
-import { Observable } from '../../src'
+import { Observable } from '../src'
 
-class Store {
+export class Store {
   /**
    * PRIMITIVES
    */
@@ -41,5 +41,11 @@ class Store {
   }
 }
 
-export const store = new Store()
-Observable.make(store, Object.keys(store) as any)
+export function getTestStore(): Store {
+  let store: Store
+
+  store = new Store()
+  Observable.make(store, Object.keys(store) as any)
+
+  return store
+}

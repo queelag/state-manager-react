@@ -1,6 +1,13 @@
 import { WatcherType } from '../definitions/enums'
 import { WatcherAutorun, WatcherDispatch, WatcherReaction, WatcherWhen } from '../definitions/interfaces'
-import { WatcherAutorunEffect, WatcherDispatchEffect, WatcherReactionExpression, WatcherWhenEffect, WatcherWhenPredicate } from '../definitions/types'
+import {
+  WatcherAutorunEffect,
+  WatcherDispatchEffect,
+  WatcherReactionEffect,
+  WatcherReactionExpression,
+  WatcherWhenEffect,
+  WatcherWhenPredicate
+} from '../definitions/types'
 import { Dummy } from '../modules/dummy'
 
 export class Watcher<T = any> {
@@ -12,7 +19,7 @@ export class Watcher<T = any> {
 
   constructor(type: WatcherType.AUTORUN, effect: WatcherAutorunEffect)
   constructor(type: WatcherType.DISPATCH, effect: WatcherDispatchEffect)
-  constructor(type: WatcherType.REACTION, effect: WatcherReactionExpression<T>, expression: WatcherReactionExpression<T>)
+  constructor(type: WatcherType.REACTION, effect: WatcherReactionEffect<T>, expression: WatcherReactionExpression<T>)
   constructor(type: WatcherType.WHEN, effect: WatcherWhenEffect, predicate: WatcherWhenPredicate)
   constructor(type: WatcherType, ...args: any) {
     this.autorun = Dummy.WatcherAutorun
