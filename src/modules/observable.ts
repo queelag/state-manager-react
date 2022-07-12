@@ -190,18 +190,25 @@ export class Observable {
         return property
       },
       set: (target: U, p: string, value: any, receiver: any) => {
-        let property: any, set: boolean
+        let set: boolean
 
         if (p === 'isProxy') {
           return false
         }
 
-        property = Reflect.get(target, p)
-        if (property === value) return true
+        if (value === Reflect.get(target, p)) {
+          return true
+        }
 
         switch (typeof value) {
           case 'object':
-            if (Observable.isProxy(value) || Observable.isNotProxiable(value)) {
+            if (Observable.isNotProxiable(value)) {
+              break
+            }
+
+            Observable.makeProperties(root, value, Object.keys(value))
+
+            if (Observable.isProxy(value)) {
               break
             }
 
