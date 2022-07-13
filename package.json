@@ -1,11 +1,10 @@
 {
   "author": "Dario Sechi",
-  "dependencies": {},
   "devDependencies": {
     "@microsoft/api-extractor": "^7.24.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@queelag/core": "^1.0.83",
-    "@queelag/state-manager": "^1.0.0",
+    "@queelag/state-manager": "^1.0.1",
     "@rollup/plugin-typescript": "^8.3.2",
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^27.5.1",
@@ -52,7 +51,7 @@
     "tarball": "yarn version && cp package.json dist/. && cd dist && yarn pack",
     "deploy": "yarn test && yarn build && yarn tarball && yarn publish dist/*.tgz --access public",
     "docs:dev": "webpack serve -c ./docs/webpack.config.js",
-    "docs:build": "rm -f docs/main*.js && webpack -c ./docs/webpack.config.js"
+    "docs:build": "rm -f docs/main*.js && webpack -c ./docs/webpack.config.js && typedoc"
   },
   "sideEffects": false,
   "version": "1.0.0"

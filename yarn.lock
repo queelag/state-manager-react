@@ -662,10 +662,10 @@
     node-fetch-cjs "^3.2.4"
     rfc4648 "^1.5.1"
 
-"@queelag/state-manager@^1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@queelag/state-manager/1.0.0/93aa71f8ce4ba933d7d788c1f83515c6a5f17bbd1433ad020f4f186d9d971432#f675bd9d062edbb8238b066645352b5a0169b1ae"
-  integrity sha512-fg72LbtL5pBWvPPETQ/i0PihWqrxN6ZKTIislcsXvOT+64LzIeP00eMkMnrGhbc7RgPumTE6kAMe6mHrsW2jxA==
+"@queelag/state-manager@^1.0.1":
+  version "1.0.1"
+  resolved "https://npm.pkg.github.com/download/@queelag/state-manager/1.0.1/8e26a580952714f9c57826730cd9f8f901bd521f1e5914c505c9041e46cb2cfa#c33a2dfed261215236fff7b5d479fb878d73a806"
+  integrity sha512-oZE78m/ZY/6VhpIdSf9V12QL1uPenPzLZtOer5HlgPtgWGKIBx398GtF+BziKigw+p2rg9M6pSlJVNEy+Sl8RQ==
 
 "@rollup/plugin-typescript@^8.3.2":
   version "8.3.2"

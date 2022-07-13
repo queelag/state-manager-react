@@ -533,12 +533,11 @@ var E,T,N;!function(E){E.CONSTRUCTED="CONSTRUCTED",E.MOUNTED="MOUNTED",E.UNMOUNT
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ModuleLogger": () => (/* binding */ i)
+/* harmony export */   "ModuleLogger": () => (/* binding */ r)
 /* harmony export */ });
 /* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @queelag/core */ "./node_modules/@queelag/core/modules/logger.js");
-/* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @queelag/core */ "./node_modules/@queelag/core/definitions/enums.js");
 /* harmony import */ var _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../definitions/enums.js */ "./node_modules/@queelag/state-manager/definitions/enums.js");
-const i=new _queelag_core__WEBPACK_IMPORTED_MODULE_0__.Logger(_definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.LoggerName.MODULE,_queelag_core__WEBPACK_IMPORTED_MODULE_2__.LoggerLevel.VERBOSE);
+const r=new _queelag_core__WEBPACK_IMPORTED_MODULE_0__.Logger(_definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.LoggerName.MODULE);
 
 
 /***/ }),
@@ -40373,6 +40372,31 @@ var _a;
 _a = __webpack_require__.$Refresh$.signature();
 
 
+/**
+ * Runs an effect on any target properties change.
+ *
+ * ```tsx
+ * import React from 'react'
+ * import { useAutorun } from '@queelag/state-manager-react'
+ * import { observe } from '@queelag/state-manager'
+ *
+ * const store = observe({ number: 0 })
+ *
+ * function App() {
+ *   const onClick = () => {
+ *     store.number++
+ *   }
+ *
+ *   useAutorun(() => {
+ *     console.log(store.number)
+ *   }, store)
+ *
+ *   return <button onClick={onClick} />
+ * }
+ * ```
+ *
+ * @category Hook
+ */
 function useAutorun(effect, target) {
     _a();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -40424,6 +40448,23 @@ _a = __webpack_require__.$Refresh$.signature();
 
 /**
  * Forces a re-render if the component is mounted.
+ *
+ * ```tsx
+ * import React, { useRef } from 'react'
+ * import { useDispatch } from '@queelag/state-manager-react'
+ *
+ * function App() {
+ *   const dispatch = useDispatch()
+ *   const number = useRef(0)
+ *
+ *   const onClick = () => {
+ *     number.current++
+ *     dispatch()
+ *   }
+ *
+ *   return <button onClick={onClick}>{number.current}</button>
+ * }
+ * ```
  *
  * @category Hook
  */
@@ -40488,6 +40529,30 @@ _a = __webpack_require__.$Refresh$.signature();
 /**
  * Returns the life cycle of a component.
  *
+ * ```tsx
+ * import React, { useEffect } from 'react'
+ * import { useLifeCycle } from '@queelag/state-manager-react'
+ *
+ * function App() {
+ *   const life = useLifeCycle()
+ *
+ *   // will be CONSTRUCTED
+ *   console.log(life)
+ *
+ *   useEffect(() => {
+ *     // will be MOUNTED
+ *     console.log(life)
+ *
+ *     return () => {
+ *       // will be UNMOUNTED
+ *       console.log(life)
+ *     }
+ *   }, [])
+ *
+ *   return <button onClick={onClick}>{number.current}</button>
+ * }
+ * ```
+ *
  * @category Hook
  */
 function useLifeCycle() {
@@ -40545,13 +40610,35 @@ _a = __webpack_require__.$Refresh$.signature();
 
 
 
+/**
+ * Automatically re-renders when any of the targets properties change.
+ *
+ * ```tsx
+ * import React from 'react'
+ * import { useObserver } from '@queelag/state-manager-react'
+ * import { observe } from '@queelag/state-manager'
+ *
+ * const store = observe({ number: 0 })
+ *
+ * function App() {
+ *   const onClick = () => {
+ *     store.number++
+ *   }
+ *
+ *   return useObserver(() => <button onClick={onClick}>{store.number}</button>, [store])
+ * }
+ * ```
+ *
+ * @category Hook
+ */
 function useObserver(fn, targets) {
     _a();
     const dispatch = (0,_use_dispatch__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         let disposers;
-        disposers = targets.map((v) => (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__.watch)(_queelag_state_manager__WEBPACK_IMPORTED_MODULE_3__.WatcherType.DISPATCH, dispatch, v));
-        // if (disposers.length <= 0) return
+        disposers = targets.map((v) => {
+            return (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__.watch)(_queelag_state_manager__WEBPACK_IMPORTED_MODULE_3__.WatcherType.DISPATCH, dispatch, v);
+        });
         return () => disposers.forEach((v) => v());
     }, []);
     return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, fn());
@@ -40597,6 +40684,35 @@ var _a;
 _a = __webpack_require__.$Refresh$.signature();
 
 
+/**
+ * Runs an effect when the value returned from the expression changes.
+ *
+ * ```tsx
+ * import React from 'react'
+ * import { useReaction } from '@queelag/state-manager-react'
+ * import { observe } from '@queelag/state-manager'
+ *
+ * const store = observe({ number: 0 })
+ *
+ * function App() {
+ *   const onClick = () => {
+ *     store.number++
+ *   }
+ *
+ *   useReaction(
+ *     () => store.number,
+ *     () => {
+ *       console.log(store.number)
+ *     },
+ *     store
+ *   )
+ *
+ *   return <button onClick={onClick} />
+ * }
+ * ```
+ *
+ * @category Hook
+ */
 function useReaction(expression, effect, target) {
     _a();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -40644,6 +40760,35 @@ var _a;
 _a = __webpack_require__.$Refresh$.signature();
 
 
+/**
+ * Runs an effect when the predicate is truthy.
+ *
+ * ```tsx
+ * import React from 'react'
+ * import { useWhen } from '@queelag/state-manager-react'
+ * import { observe } from '@queelag/state-manager'
+ *
+ * const store = observe({ boolean: false })
+ *
+ * function App() {
+ *   const onClick = () => {
+ *     store.boolean = !store.boolean
+ *   }
+ *
+ *   useWhen(
+ *     () => store.boolean,
+ *     () => {
+ *       console.log(store.boolean)
+ *     },
+ *     store
+ *   )
+ *
+ *   return <button onClick={onClick} />
+ * }
+ * ```
+ *
+ * @category Hook
+ */
 function useWhen(predicate, effect, target) {
     _a();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {

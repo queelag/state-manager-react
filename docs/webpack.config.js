@@ -37,7 +37,7 @@ module.exports = {
   output: {
     filename: '[name].[fullhash].js',
     path: path.resolve(__dirname, './'),
-    publicPath: '/'
+    publicPath: isProduction ? './' : undefined
   },
   plugins: [
     new HtmlWebpackPlugin({
