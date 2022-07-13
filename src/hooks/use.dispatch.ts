@@ -5,6 +5,23 @@ import { useLifeCycle } from './use.life.cycle'
 /**
  * Forces a re-render if the component is mounted.
  *
+ * ```tsx
+ * import React, { useRef } from 'react'
+ * import { useDispatch } from '@queelag/react-state-manager'
+ *
+ * function App() {
+ *   const dispatch = useDispatch()
+ *   const number = useRef(0)
+ *
+ *   const onClick = () => {
+ *     number.current++
+ *     dispatch()
+ *   }
+ *
+ *   return <button onClick={onClick}>{number.current}</button>
+ * }
+ * ```
+ *
  * @category Hook
  */
 export function useDispatch(onDispatch?: () => any): () => void {

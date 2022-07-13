@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import React, { ReactElement } from 'react'
-import { useObservable, useObserver } from '../../src'
+import { useObservable } from '../../src'
 
 describe('useObservable', () => {
   it('works', () => {
@@ -13,13 +13,10 @@ describe('useObservable', () => {
         store.number++
       }
 
-      return useObserver(
-        () => (
-          <span data-testid='number' onClick={onClick}>
-            {store.number}
-          </span>
-        ),
-        [store]
+      return (
+        <span data-testid='number' onClick={onClick}>
+          {store.number}
+        </span>
       )
     }
 
