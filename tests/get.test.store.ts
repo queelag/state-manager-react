@@ -1,6 +1,6 @@
 import { Environment } from '@queelag/core'
 import dayjs, { Dayjs } from 'dayjs'
-import { observe } from '../src'
+import { observe } from '@queelag/state-manager'
 
 export class Store {
   /**

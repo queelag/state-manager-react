@@ -1,7 +1,7 @@
+import { WatcherReactionEffect, WatcherReactionExpression } from '@queelag/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
 import { useReaction } from '../../src'
-import { WatcherReactionEffect, WatcherReactionExpression } from '../../src/definitions/types'
 import { getTestStore, Store } from '../get.test.store'
 
 describe('useReaction', () => {

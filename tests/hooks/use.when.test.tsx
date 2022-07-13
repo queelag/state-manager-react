@@ -1,7 +1,7 @@
+import { WatcherWhenEffect, WatcherWhenPredicate } from '@queelag/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
 import { useWhen } from '../../src'
-import { WatcherWhenEffect, WatcherWhenPredicate } from '../../src/definitions/types'
 import { getTestStore, Store } from '../get.test.store'
 
 describe('useWhen', () => {

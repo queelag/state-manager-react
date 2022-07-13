@@ -5,6 +5,7 @@
     "@microsoft/api-extractor": "^7.24.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@queelag/core": "^1.0.83",
+    "@queelag/state-manager": "^1.0.0",
     "@rollup/plugin-typescript": "^8.3.2",
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^27.5.1",
@@ -37,6 +38,7 @@
   "name": "@queelag/react-state-manager",
   "peerDependencies": {
     "@queelag/core": ">= 1.0.0",
+    "@queelag/state-manager": ">= 1.0.0",
     "react": ">= 17.0.0",
     "react-dom": ">= 17.0.0"
   },

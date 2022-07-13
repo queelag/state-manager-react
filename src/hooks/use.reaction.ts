@@ -1,6 +1,5 @@
+import { reaction, WatcherReactionEffect, WatcherReactionExpression } from '@queelag/state-manager'
 import { useEffect } from 'react'
-import { WatcherReactionEffect, WatcherReactionExpression } from '../definitions/types'
-import { reaction } from '../modules/reaction'
 
 export function useReaction<T extends object, U>(expression: WatcherReactionExpression<U>, effect: WatcherReactionEffect<U>, target: T) {
   useEffect(() => {

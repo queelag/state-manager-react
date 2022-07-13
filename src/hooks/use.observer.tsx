@@ -1,7 +1,5 @@
+import { watch, WatcherDisposer, WatcherType } from '@queelag/state-manager'
 import React, { Fragment, ReactElement, ReactNode, useEffect } from 'react'
-import { WatcherType } from '../definitions/enums'
-import { WatcherDisposer } from '../definitions/types'
-import { watch } from '../modules/watch'
 import { useDispatch } from './use.dispatch'
 
 export function useObserver(fn: () => ReactNode, targets: object[]): ReactElement {

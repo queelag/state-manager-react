@@ -1,7 +1,7 @@
+import { WatcherAutorunEffect } from '@queelag/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
 import { useAutorun } from '../../src'
-import { WatcherAutorunEffect } from '../../src/definitions/types'
 import { getTestStore, Store } from '../get.test.store'
 
 describe('useAutorun', () => {
