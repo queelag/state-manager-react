@@ -7,7 +7,7 @@ import { useDispatch } from './use.dispatch'
  *
  * ```tsx
  * import React from 'react'
- * import { useObservable } from '@queelag/react-state-manager'
+ * import { useObservable } from '@queelag/state-manager-react'
  *
  * function App() {
  *   const store = useObservable({ number: 0 })

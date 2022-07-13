@@ -6,7 +6,7 @@ import { useEffect } from 'react'
  *
  * ```tsx
  * import React from 'react'
- * import { useWhen } from '@queelag/react-state-manager'
+ * import { useWhen } from '@queelag/state-manager-react'
  * import { observe } from '@queelag/state-manager'
  *
  * const store = observe({ boolean: false })

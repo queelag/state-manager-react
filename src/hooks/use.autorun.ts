@@ -6,7 +6,7 @@ import { useEffect } from 'react'
  *
  * ```tsx
  * import React from 'react'
- * import { useAutorun } from '@queelag/react-state-manager'
+ * import { useAutorun } from '@queelag/state-manager-react'
  * import { observe } from '@queelag/state-manager'
  *
  * const store = observe({ number: 0 })

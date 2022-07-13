@@ -6,7 +6,7 @@ import { useObserver } from '../hooks/use.observer'
  *
  * ```tsx
  * import React from 'react'
- * import { Observer } from '@queelag/react-state-manager'
+ * import { Observer } from '@queelag/state-manager-react'
  * import { observe } from '@queelag/state-manager'
  *
  * const store = observe({ number: 0 })

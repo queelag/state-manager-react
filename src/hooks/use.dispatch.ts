@@ -7,7 +7,7 @@ import { useLifeCycle } from './use.life.cycle'
  *
  * ```tsx
  * import React, { useRef } from 'react'
- * import { useDispatch } from '@queelag/react-state-manager'
+ * import { useDispatch } from '@queelag/state-manager-react'
  *
  * function App() {
  *   const dispatch = useDispatch()
