@@ -1,5 +1,6 @@
+import { toJS } from '@queelag/state-manager'
 import React from 'react'
-import { toJS, useAutorun, useObserver, useReaction, useWhen } from '../../src'
+import { useAutorun, useObserver, useReaction, useWhen } from '../../src'
 import { store } from './store'
 
 export function App() {

@@ -51,7 +51,8 @@
     "build": "rm -rf dist && yarn rollup -c && yarn api-extractor run --local",
     "tarball": "yarn version && cp package.json dist/. && cd dist && yarn pack",
     "deploy": "yarn test && yarn build && yarn tarball && yarn publish dist/*.tgz --access public",
-    "example:dev": "webpack serve -c ./example/webpack.config.js"
+    "docs:dev": "webpack serve -c ./docs/webpack.config.js",
+    "docs:build": "rm -f docs/main*.js && webpack -c ./docs/webpack.config.js"
   },
   "sideEffects": false,
   "version": "1.0.0"

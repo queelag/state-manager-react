@@ -14,7 +14,7 @@ module.exports = {
     hot: true
   },
   devtool: false,
-  entry: './example/src/index.tsx',
+  entry: './docs/src/index.tsx',
   mode: MODE,
   module: {
     rules: [
@@ -35,14 +35,13 @@ module.exports = {
     ]
   },
   output: {
-    clean: true,
     filename: '[name].[fullhash].js',
-    path: path.resolve(__dirname, './example/build'),
+    path: path.resolve(__dirname, './'),
     publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './example/public/index.html'
+      template: './docs/public/index.html'
     }),
     isDevelopment && new ReactRefreshWebpackPlugin()
   ].filter(Boolean),
