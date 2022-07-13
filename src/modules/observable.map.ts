@@ -8,13 +8,13 @@ export class ObservableMap {
   static make<T extends object, K, V>(root: T, map: Map<K, V>): Map<K, V> {
     let _clear: MapClear, _delete: MapDelete<K>, _set: MapSet<K, V>
 
-    _clear = map.clear
-    _delete = map.delete
-    _set = map.set
+    _clear = map.clear.bind(map)
+    _delete = map.delete.bind(map)
+    _set = map.set.bind(map)
 
     map.clear = () => {
       _clear()
-      Administration.onChange(root)
+      Administration.get(root)?.onChange()
     }
     map.delete = (key: K) => {
       let deleted: boolean
@@ -22,7 +22,7 @@ export class ObservableMap {
       deleted = _delete(key)
       if (!deleted) return false
 
-      Administration.onChange(root)
+      Administration.get(root)?.onChange()
 
       return true
     }
@@ -30,7 +30,7 @@ export class ObservableMap {
       let map: Map<K, V>
 
       map = _set(key, value)
-      Administration.onChange(root)
+      Administration.get(root)?.onChange()
 
       return map
     }

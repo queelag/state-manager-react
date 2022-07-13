@@ -7,7 +7,7 @@ import { useLifeCycle } from './use.life.cycle'
  *
  * @category Hook
  */
-export function useDispatch(): () => void {
+export function useDispatch(onDispatch?: () => any): () => void {
   const life = useLifeCycle()
   const reducer = useReducer(() => ({}), {})
 
@@ -17,7 +17,10 @@ export function useDispatch(): () => void {
       case ComponentLifeCycle.UNMOUNTED:
         break
       case ComponentLifeCycle.MOUNTED:
-        return reducer[1]()
+        reducer[1]()
+        onDispatch && onDispatch()
+
+        break
     }
   }
 

@@ -14,39 +14,45 @@ export class Administration<T extends object, K extends keyof T = keyof T> {
     this.watchers = []
   }
 
-  static onChange<T extends object, U>(target: T): void {
-    Administration.with(target, (administration: Administration<T>) => {
-      let autoruns: Watcher<U>[], dispatchers: Watcher<U>[], reactions: Watcher<U>[], when: Watcher<U>[]
+  onChange(): void {
+    let autoruns: Watcher[], dispatchers: Watcher[], reactions: Watcher[], when: Watcher[]
 
-      autoruns = administration.watchers.filter((v: Watcher<U>) => v.type === WatcherType.AUTORUN)
-      autoruns.forEach((v: Watcher<U>) => {
-        v.autorun.effect()
-        ModuleLogger.verbose('Administration', 'onChange', `The autorun effect has been executed.`, v)
-      })
-
-      dispatchers = administration.watchers.filter((v: Watcher<U>) => v.type === WatcherType.DISPATCH)
-      dispatchers.forEach((v: Watcher<U>) => {
-        v.dispatch.effect()
-        ModuleLogger.verbose('Administration', 'onChange', `The dispatch effect has been executed.`, v)
-      })
-
-      reactions = administration.watchers.filter((v: Watcher<U>) => v.reaction.value !== v.reaction.expression() && v.type === WatcherType.REACTION)
-      reactions.forEach((v: Watcher<U>) => {
-        v.reaction.value = v.reaction.expression()
-        v.reaction.effect(v.reaction.value)
-
-        ModuleLogger.verbose('Administration', 'onChange', `The reaction effect has been executed.`, v)
-      })
-
-      when = administration.watchers.filter((v: Watcher<U>) => v.when.value !== v.when.predicate() && v.type === WatcherType.WHEN)
-      when.forEach((v: Watcher<U>) => {
-        v.when.value = v.when.predicate()
-        if (!v.when.value) return
-
-        v.when.effect()
-        ModuleLogger.verbose('Administration', 'onChange', `The when effect has been executed.`, v)
-      })
+    autoruns = this.watchers.filter((v: Watcher) => v.type === WatcherType.AUTORUN)
+    autoruns.forEach((v: Watcher) => {
+      v.autorun.effect()
+      ModuleLogger.verbose('Administration', 'onChange', `The autorun effect has been executed.`, v)
     })
+
+    dispatchers = this.watchers.filter((v: Watcher) => v.type === WatcherType.DISPATCH)
+    dispatchers.forEach((v: Watcher) => {
+      v.dispatch.effect()
+      ModuleLogger.verbose('Administration', 'onChange', `The dispatch effect has been executed.`, v)
+    })
+
+    reactions = this.watchers.filter((v: Watcher) => v.reaction.value !== v.reaction.expression() && v.type === WatcherType.REACTION)
+    reactions.forEach((v: Watcher) => {
+      v.reaction.value = v.reaction.expression()
+      v.reaction.effect(v.reaction.value)
+
+      ModuleLogger.verbose('Administration', 'onChange', `The reaction effect has been executed.`, v)
+    })
+
+    when = this.watchers.filter((v: Watcher) => v.when.value !== v.when.predicate() && v.type === WatcherType.WHEN)
+    when.forEach((v: Watcher) => {
+      v.when.value = v.when.predicate()
+      if (!v.when.value) return
+
+      v.when.effect()
+      ModuleLogger.verbose('Administration', 'onChange', `The when effect has been executed.`, v)
+    })
+  }
+
+  static set<T extends object, K extends keyof T>(target: T, keys: K[], proxy: T): boolean {
+    return Reflect.set(target, ADMINISTRATION_SYMBOL, new Administration(keys, proxy))
+  }
+
+  static delete<T extends object>(target: T): boolean {
+    return Reflect.deleteProperty(target, ADMINISTRATION_SYMBOL)
   }
 
   static get<T extends object>(target: T): Administration<T> | undefined {

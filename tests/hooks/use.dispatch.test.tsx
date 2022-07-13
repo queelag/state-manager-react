@@ -1,21 +1,16 @@
-import { noop } from '@queelag/core'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, RenderResult, screen } from '@testing-library/react'
 import React, { ReactElement, useEffect, useRef } from 'react'
 import { useDispatch } from '../../src'
 
 describe('useDispatch', () => {
-  it('causes a re-render only when the component is mounted', () => {
-    let spy: jest.SpyInstance, Component: () => ReactElement
+  it('causes a re-render only when the component is mounted', async () => {
+    let onDispatch: jest.Mock, Component: () => ReactElement, result: RenderResult
 
-    spy = jest.spyOn({ a: noop }, 'a')
+    onDispatch = jest.fn()
 
     Component = () => {
-      const dispatch = useDispatch()
+      const dispatch = useDispatch(onDispatch)
       const number = useRef(0)
-
-      if (!spy) {
-        spy = jest.spyOn({ dispatch }, 'dispatch')
-      }
 
       if (number.current <= 0) {
         number.current++
@@ -35,11 +30,12 @@ describe('useDispatch', () => {
       return <span data-testid='number'>{number.current}</span>
     }
 
-    render(<Component />)
-    waitFor(() => {
-      expect(spy).toHaveBeenCalled()
-      expect(spy).toHaveBeenCalledTimes(1)
-      expect(screen.queryByTestId('number')?.innerHTML).toBe(2)
-    })
+    result = render(<Component />)
+    expect(screen.queryByTestId('number')?.innerHTML).toBe('2')
+    expect(onDispatch).toBeCalledTimes(1)
+
+    result.unmount()
+    expect(screen.queryByTestId('number')?.innerHTML).toBe(undefined)
+    expect(onDispatch).toBeCalledTimes(1)
   })
 })

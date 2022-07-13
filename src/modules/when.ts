@@ -1,7 +1,7 @@
 import { DeferredPromise } from '@queelag/core'
 import { WatcherType } from '../definitions/enums'
 import { WatcherDisposer, WatcherWhenEffect, WatcherWhenPredicate } from '../definitions/types'
-import { Observable } from './observable'
+import { watch } from './watch'
 
 export function when<T extends object>(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect, target: T): WatcherDisposer
 export function when<T extends object>(predicate: WatcherWhenPredicate, target: T): Promise<void>
@@ -19,13 +19,13 @@ export function when<T extends object>(predicate: WatcherWhenPredicate, ...args:
       target = args[0]
 
       promise = new DeferredPromise()
-      disposer = Observable.watch(WatcherType.WHEN, predicate, effect, target)
+      disposer = watch(WatcherType.WHEN, predicate, effect, target)
 
       return promise.instance
     case 2:
       effect = args[0]
       target = args[1]
 
-      return Observable.watch(WatcherType.WHEN, predicate, effect, target)
+      return watch(WatcherType.WHEN, predicate, effect, target)
   }
 }

@@ -1,24 +1,20 @@
 import { Environment } from '@queelag/core'
 import dayjs, { Dayjs } from 'dayjs'
-import { Observable } from '../../src'
+import { observe } from '../../src'
 
 class Store {
   /**
    * PRIMITIVES
    */
-  array: any[] = [0, [0], { a: 0, b: { c: 0 } }]
+  array: any[] = []
   bigint: BigInt = BigInt(0)
   boolean: boolean = false
   function: Function = () => undefined
   null: null = null
   number: number = 0
-  object: object = {
-    a: 0,
-    b: {
-      c: 0
-    }
-  }
-  symbol: Symbol = Symbol('symbol')
+  object: object = {}
+  string: string = ''
+  symbol: Symbol = Symbol()
   undefined: undefined = undefined
   /**
    * CLASSES
@@ -42,4 +38,4 @@ class Store {
 }
 
 export const store = new Store()
-Observable.make(store, Object.keys(store) as any)
+observe(store, Object.keys(store) as any)

@@ -1,10 +1,10 @@
 import React from 'react'
-import { useAutorun, useObserver, useReaction, useWhen } from '../../src'
+import { toJS, useAutorun, useObserver, useReaction, useWhen } from '../../src'
 import { store } from './store'
 
 export function App() {
   useAutorun(() => {
-    console.log('autorun')
+    console.log('autorun', toJS(store))
   }, store)
 
   useReaction(

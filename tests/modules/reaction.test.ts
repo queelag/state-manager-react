@@ -1,22 +1,16 @@
-import { render } from '@testing-library/react'
-import React, { Fragment, ReactElement } from 'react'
-import { useReaction } from '../../src'
+import { reaction } from '../../src'
 import { WatcherReactionEffect, WatcherReactionExpression } from '../../src/definitions/types'
 import { getTestStore, Store } from '../get.test.store'
 
-describe('useReaction', () => {
+describe('reaction', () => {
   it('runs only on expression value change', async () => {
-    let store: Store, expression: WatcherReactionExpression<number>, effect: WatcherReactionEffect<number>, Component: () => ReactElement
+    let store: Store, expression: WatcherReactionExpression<number>, effect: WatcherReactionEffect<number>
 
     store = getTestStore()
     expression = () => store.number
     effect = jest.fn()
 
-    Component = () => {
-      useReaction(expression, effect, store)
-      return <Fragment />
-    }
-    render(<Component />)
+    reaction(expression, effect, store)
 
     expect(effect).not.toBeCalled()
 
