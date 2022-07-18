@@ -24,8 +24,8 @@ import { useDispatch } from './use.dispatch'
  * @category Hook
  */
 export function useObserver(fn: () => ReactNode, targets: object[]): ReactElement {
-  const dispatch = useDispatch()
   const Component = useMemo(() => () => <Fragment>{fn()}</Fragment>, [])
+  const dispatch = useDispatch()
 
   useEffect(() => {
     let disposers: WatcherDisposer[]
