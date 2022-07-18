@@ -11,7 +11,7 @@ export function App() {
   useReaction(
     () => store.object.map.get(0),
     () => {
-      console.log('store.map', store.object.map)
+      console.log('store.object.map', store.object.map)
     },
     store
   )
@@ -19,7 +19,7 @@ export function App() {
   useWhen(
     () => store.primitive.boolean,
     () => {
-      console.log('store.boolean is true', store.primitive)
+      console.log('store.primitive.boolean is true', store.primitive)
     },
     store
   )
