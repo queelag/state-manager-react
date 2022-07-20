@@ -26,7 +26,7 @@ import { useEffect } from 'react'
  *
  * @category Hook
  */
-export function useAutorun<T extends object, U>(effect: WatcherAutorunEffect, target: T) {
+export function useAutorun<T extends object, U>(effect: WatcherAutorunEffect, target?: T) {
   useEffect(() => {
     return autorun(effect, target)
   }, [])

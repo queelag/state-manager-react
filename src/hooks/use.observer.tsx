@@ -1,5 +1,7 @@
-import { watch, WatcherDisposer, WatcherType } from '@queelag/state-manager'
-import React, { Fragment, ReactElement, ReactNode, useEffect, useMemo } from 'react'
+import { GLOBAL_OBSERVABLE, watch, WatcherDisposer, WatcherType } from '@queelag/state-manager'
+import React, { Fragment, ReactElement, ReactNode, useEffect, useRef } from 'react'
+import { PrimitiveChildren } from '../definitions/types'
+import { ChildrenUtils } from '../utils/children.utils'
 import { useDispatch } from './use.dispatch'
 
 /**
@@ -23,19 +25,31 @@ import { useDispatch } from './use.dispatch'
  *
  * @category Hook
  */
-export function useObserver(fn: () => ReactNode, targets: object[]): ReactElement {
-  const Component = useMemo(() => () => <Fragment>{fn()}</Fragment>, [])
+export function useObserver(fn: () => ReactNode, targets: object[] = [GLOBAL_OBSERVABLE]): ReactElement {
   const dispatch = useDispatch()
+  const pchildren = useRef(ChildrenUtils.flatten(fn()))
 
   useEffect(() => {
     let disposers: WatcherDisposer[]
 
     disposers = targets.map((v: object) => {
-      return watch(WatcherType.DISPATCH, dispatch, v)
+      return watch(
+        WatcherType.DISPATCH,
+        () => {
+          let children: PrimitiveChildren[]
+
+          children = ChildrenUtils.flatten(fn())
+          if (ChildrenUtils.areFlattenedEqual(pchildren.current, children)) return
+
+          pchildren.current = children
+          dispatch()
+        },
+        v
+      )
     })
 
     return () => disposers.forEach((v: WatcherDisposer) => v())
   }, [])
 
-  return <Component />
+  return <Fragment>{fn()}</Fragment>
 }

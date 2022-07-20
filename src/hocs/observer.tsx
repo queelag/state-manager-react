@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { ReactElement, ReactNode } from 'react'
 import { useObserver } from '../hooks/use.observer'
 
 /**
@@ -22,6 +22,6 @@ import { useObserver } from '../hooks/use.observer'
  *
  * @category HOC
  */
-export function observer<P = any>(Component: (props: P) => ReactElement, targets: object[]): (props: P) => ReactElement {
-  return (props: P) => useObserver(() => <Component {...props} />, targets)
+export function observer<P = any>(fn: (props: P) => ReactNode, targets?: object[]): (props: P) => ReactElement {
+  return (props: P) => useObserver(() => fn(props), targets)
 }

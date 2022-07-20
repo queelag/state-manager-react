@@ -30,7 +30,7 @@ import { useEffect } from 'react'
  *
  * @category Hook
  */
-export function useWhen<T extends object, U>(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect, target: T) {
+export function useWhen<T extends object, U>(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect, target?: T) {
   useEffect(() => {
     return when(predicate, effect, target)
   }, [])
