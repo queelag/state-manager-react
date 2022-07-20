@@ -39817,7 +39817,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src */ "./src/hooks/use.autorun.ts");
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src */ "./src/hooks/use.reaction.ts");
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src */ "./src/hooks/use.when.ts");
-/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src */ "./src/components/Observer.tsx");
+/* harmony import */ var _components_Libraries__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Libraries */ "./docs/src/components/Libraries.tsx");
+/* harmony import */ var _components_Objects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Objects */ "./docs/src/components/Objects.tsx");
+/* harmony import */ var _components_Primitives__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Primitives */ "./docs/src/components/Primitives.tsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./docs/src/store.ts");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
@@ -39829,69 +39831,225 @@ _b = __webpack_require__.$Refresh$.signature();
 
 
 
+
+
+
 function App() {
     _b();
     (0,_src__WEBPACK_IMPORTED_MODULE_1__.useAutorun)(() => {
         console.log('autorun', (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__.toJS)(_store__WEBPACK_IMPORTED_MODULE_3__.store));
-    }, _store__WEBPACK_IMPORTED_MODULE_3__.store);
+    });
     (0,_src__WEBPACK_IMPORTED_MODULE_4__.useReaction)(() => _store__WEBPACK_IMPORTED_MODULE_3__.store.object.map.get(0), () => {
         console.log('store.object.map', _store__WEBPACK_IMPORTED_MODULE_3__.store.object.map);
-    }, _store__WEBPACK_IMPORTED_MODULE_3__.store);
+    });
     (0,_src__WEBPACK_IMPORTED_MODULE_5__.useWhen)(() => _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.boolean, () => {
         console.log('store.primitive.boolean is true', _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive);
-    }, _store__WEBPACK_IMPORTED_MODULE_3__.store);
+    });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { alignItems: 'flex-start', display: 'flex', flexDirection: 'column' } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Primitives"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src__WEBPACK_IMPORTED_MODULE_6__.Observer, { targets: [_store__WEBPACK_IMPORTED_MODULE_3__.store.primitive] }, () => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "array: ",
-                JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.array)),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "bigint: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.bigint.toString()),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "boolean: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.boolean.toString()),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "function: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive["function"].toString()),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "null: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive["null"]),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "number: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.number),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "object: ",
-                JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.object)),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "symbol: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.symbol.toString()),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "undefined: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.primitive.undefined)))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Primitives__WEBPACK_IMPORTED_MODULE_6__.Primitives, null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Objects"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src__WEBPACK_IMPORTED_MODULE_6__.Observer, { targets: [_store__WEBPACK_IMPORTED_MODULE_3__.store.object] }, () => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "date: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.object.date.toString()),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "map: ",
-                JSON.stringify([..._store__WEBPACK_IMPORTED_MODULE_3__.store.object.map.entries()])),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "set: ",
-                JSON.stringify([..._store__WEBPACK_IMPORTED_MODULE_3__.store.object.set.values()]))))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Objects__WEBPACK_IMPORTED_MODULE_7__.Objects, null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Libraries"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src__WEBPACK_IMPORTED_MODULE_6__.Observer, { targets: [_store__WEBPACK_IMPORTED_MODULE_3__.store.library] }, () => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                "dayjs: ",
-                _store__WEBPACK_IMPORTED_MODULE_3__.store.library.dayjs.toString()))))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Libraries__WEBPACK_IMPORTED_MODULE_8__.Libraries, null)));
 }
 _a = App;
 __webpack_require__.$Refresh$.register(_a, "App");
 _b(App, "85RBMKWDlKaUA5YLvNDBFpr05Jk=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useAutorun, _src__WEBPACK_IMPORTED_MODULE_4__.useReaction, _src__WEBPACK_IMPORTED_MODULE_5__.useWhen]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./docs/src/components/Libraries.tsx":
+/*!*******************************************!*\
+  !*** ./docs/src/components/Libraries.tsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Libraries": () => (/* binding */ Libraries)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.observer.tsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+var _b;
+_b = __webpack_require__.$Refresh$.signature();
+
+
+
+function Libraries() {
+    _b();
+    console.log('RENDERING LIBRARIES');
+    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "dayjs: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.library.dayjs.toString()))));
+}
+_a = Libraries;
+__webpack_require__.$Refresh$.register(_a, "Libraries");
+_b(Libraries, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useObserver]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./docs/src/components/Objects.tsx":
+/*!*****************************************!*\
+  !*** ./docs/src/components/Objects.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Objects": () => (/* binding */ Objects)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.observer.tsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+var _b;
+_b = __webpack_require__.$Refresh$.signature();
+
+
+
+function Objects() {
+    _b();
+    console.log('RENDERING OBJECTS');
+    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "date: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.object.date.toString()),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "map: ",
+            JSON.stringify([..._store__WEBPACK_IMPORTED_MODULE_2__.store.object.map.entries()])),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "set: ",
+            JSON.stringify([..._store__WEBPACK_IMPORTED_MODULE_2__.store.object.set.values()])))));
+}
+_a = Objects;
+__webpack_require__.$Refresh$.register(_a, "Objects");
+_b(Objects, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useObserver]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./docs/src/components/Primitives.tsx":
+/*!********************************************!*\
+  !*** ./docs/src/components/Primitives.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Primitives": () => (/* binding */ Primitives)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.observer.tsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+var _b;
+_b = __webpack_require__.$Refresh$.signature();
+
+
+
+function Primitives() {
+    _b();
+    console.log('RENDERING PRIMITIVES');
+    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "array: ",
+            JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.array)),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "bigint: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.bigint.toString()),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "boolean: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.boolean.toString()),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "function: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive["function"].toString()),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "null: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive["null"]),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "number: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.number),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "object: ",
+            JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.object)),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "symbol: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.symbol.toString()),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "undefined: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.undefined))));
+}
+_a = Primitives;
+__webpack_require__.$Refresh$.register(_a, "Primitives");
+_b(Primitives, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useObserver]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40005,76 +40163,6 @@ class Store {
 }
 const store = new Store();
 (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__.observe)(store, ['library', 'object', 'primitive']);
-
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (false) {}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ }),
-
-/***/ "./src/components/Observer.tsx":
-/*!*************************************!*\
-  !*** ./src/components/Observer.tsx ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Observer": () => (/* binding */ Observer)
-/* harmony export */ });
-/* harmony import */ var _hooks_use_observer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../hooks/use.observer */ "./src/hooks/use.observer.tsx");
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
-
-var _a;
-var _b;
-_b = __webpack_require__.$Refresh$.signature();
-
-/**
- * Component that re-renders on targets properties changes.
- *
- * ```tsx
- * import React from 'react'
- * import { Observer } from '@queelag/state-manager-react'
- * import { observe } from '@queelag/state-manager'
- *
- * const store = observe({ number: 0 })
- *
- * function App() {
- *   const onClick = () => {
- *     store.number++
- *   }
- *
- *   return (
- *     <Observer targets={[store]}>
- *       {() => <button onClick={onClick}>{store.number}</button>}
- *     </Observer>
- *   )
- * }
- * ```
- *
- * @category Component
- */
-function Observer(props) {
-    _b();
-    return (0,_hooks_use_observer__WEBPACK_IMPORTED_MODULE_0__.useObserver)(props.children, props.targets);
-}
-_a = Observer;
-__webpack_require__.$Refresh$.register(_a, "Observer");
-_b(Observer, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_hooks_use_observer__WEBPACK_IMPORTED_MODULE_0__.useObserver]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40379,16 +40467,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "useObserver": () => (/* binding */ useObserver)
 /* harmony export */ });
-/* harmony import */ var _queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @queelag/state-manager */ "../state-manager/dist/modules/watch.js");
-/* harmony import */ var _queelag_state_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @queelag/state-manager */ "../state-manager/dist/definitions/enums.js");
+/* harmony import */ var _queelag_state_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @queelag/state-manager */ "../state-manager/dist/modules/global.observable.js");
+/* harmony import */ var _queelag_state_manager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @queelag/state-manager */ "../state-manager/dist/modules/watch.js");
+/* harmony import */ var _queelag_state_manager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @queelag/state-manager */ "../state-manager/dist/definitions/enums.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _use_dispatch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use.dispatch */ "./src/hooks/use.dispatch.ts");
+/* harmony import */ var _utils_children_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/children.utils */ "./src/utils/children.utils.ts");
+/* harmony import */ var _use_dispatch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use.dispatch */ "./src/hooks/use.dispatch.ts");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
 var _a;
 _a = __webpack_require__.$Refresh$.signature();
+
 
 
 
@@ -40413,20 +40504,27 @@ _a = __webpack_require__.$Refresh$.signature();
  *
  * @category Hook
  */
-function useObserver(fn, targets) {
+function useObserver(fn, targets = [_queelag_state_manager__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE]) {
     _a();
-    const Component = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => () => react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, fn()), []);
-    const dispatch = (0,_use_dispatch__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+    const dispatch = (0,_use_dispatch__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+    const pchildren = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(_utils_children_utils__WEBPACK_IMPORTED_MODULE_3__.ChildrenUtils.flatten(fn()));
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         let disposers;
         disposers = targets.map((v) => {
-            return (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__.watch)(_queelag_state_manager__WEBPACK_IMPORTED_MODULE_3__.WatcherType.DISPATCH, dispatch, v);
+            return (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_4__.watch)(_queelag_state_manager__WEBPACK_IMPORTED_MODULE_5__.WatcherType.DISPATCH, () => {
+                let children;
+                children = _utils_children_utils__WEBPACK_IMPORTED_MODULE_3__.ChildrenUtils.flatten(fn());
+                if (_utils_children_utils__WEBPACK_IMPORTED_MODULE_3__.ChildrenUtils.areFlattenedEqual(pchildren.current, children))
+                    return;
+                pchildren.current = children;
+                dispatch();
+            }, v);
         });
         return () => disposers.forEach((v) => v());
     }, []);
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, null);
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, fn());
 }
-_a(useObserver, "3R2f1n6u28kCMsgQKH+VRbFFgRQ=", false, () => [_use_dispatch__WEBPACK_IMPORTED_MODULE_1__.useDispatch]);
+_a(useObserver, "8/HyRj6kSWtFEC5t45yXz7tR4Nw=", false, () => [_use_dispatch__WEBPACK_IMPORTED_MODULE_2__.useDispatch]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40598,6 +40696,93 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 
 /***/ }),
 
+/***/ "./src/utils/children.utils.ts":
+/*!*************************************!*\
+  !*** ./src/utils/children.utils.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ChildrenUtils": () => (/* binding */ ChildrenUtils)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+
+class ChildrenUtils {
+    static flatten(children, root = []) {
+        let array, r, node;
+        array = react__WEBPACK_IMPORTED_MODULE_0__.Children.toArray(children);
+        r = [];
+        for (let i = 0; i < array.length; i++) {
+            node = array[i];
+            switch (typeof node) {
+                case 'object':
+                    // if (node === null) {
+                    //   root.push(null)
+                    //   break
+                    // }
+                    /**
+                     * ELEMENT
+                     */
+                    if (node.props && node.props.children) {
+                        r.push(ChildrenUtils.flatten(node.props.children, root));
+                        break;
+                    }
+                    // if (Array.isArray(node)) {
+                    //   r.push(ChildrenUtils.flatten(node, root))
+                    //   break
+                    // }
+                    /**
+                     * PORTAL
+                     */
+                    if (node.children) {
+                        r.push(ChildrenUtils.flatten(node.children, root));
+                        break;
+                    }
+                    break;
+                default:
+                    root.push(node);
+                    break;
+            }
+        }
+        return root;
+    }
+    static areFlattenedEqual(c1, c2) {
+        if (c1.length !== c2.length) {
+            return false;
+        }
+        for (let i = 0; i < c1.length; i++) {
+            if (c1[i] !== c2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
 /***/ "../state-manager/dist/classes/watcher.js":
 /*!************************************************!*\
   !*** ../state-manager/dist/classes/watcher.js ***!
@@ -40644,13 +40829,12 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ADMINISTRATION_SYMBOL": () => (/* binding */ A),
-/* harmony export */   "IS_PROXY_KEY": () => (/* binding */ E),
-/* harmony export */   "PARENT_OBJECT_SYMBOL": () => (/* binding */ T)
+/* harmony export */   "IS_PROXY_KEY": () => (/* binding */ E)
 /* harmony export */ });
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-const A=Symbol("QUEELAG_REACT_STATE_MANAGER_ADMINISTRATION"),E="isProxy",T=Symbol("QUEELAG_REACT_STATE_MANAGER_PARENT_OBJECT");
+const A=Symbol("QUEELAG_REACT_STATE_MANAGER_ADMINISTRATION"),E="isProxy";
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40753,14 +40937,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Administration": () => (/* binding */ n)
 /* harmony export */ });
-/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
+/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
 /* harmony import */ var _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../definitions/enums.js */ "../state-manager/dist/definitions/enums.js");
 /* harmony import */ var _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../loggers/module.logger.js */ "../state-manager/dist/loggers/module.logger.js");
-/* harmony import */ var _parent_object_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parent.object.js */ "../state-manager/dist/modules/parent.object.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class n{keys;proxy;watchers;constructor(e,t){this.keys=e,this.proxy=t,this.watchers=[]}onChange(){let e,a,s,o,c;e=this.watchers.filter((e=>e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN)),e.forEach((e=>{e.autorun.effect(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The autorun effect has been executed.",e)})),a=this.watchers.filter((e=>e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH)),a.forEach((e=>{e.dispatch.effect(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The dispatch effect has been executed.",e)})),s=this.watchers.filter((e=>e.reaction.value!==e.reaction.expression()&&e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION)),s.forEach((e=>{e.reaction.value=e.reaction.expression(),e.reaction.effect(e.reaction.value),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The reaction effect has been executed.",e)})),o=this.watchers.filter((e=>e.when.value!==e.when.predicate()&&e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN)),o.forEach((e=>{e.when.value=e.when.predicate(),e.when.value&&(e.when.effect(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The when effect has been executed.",e))})),c=_parent_object_js__WEBPACK_IMPORTED_MODULE_2__.ParentObject.get(this.proxy),c&&n.get(c)?.onChange()}static define(t,i,a){return Reflect.has(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.ADMINISTRATION_SYMBOL)?(_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.warn("Administration","set","The target already has an Administration defined.",t,i,a),t):Object.defineProperty(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.ADMINISTRATION_SYMBOL,{configurable:!1,enumerable:!1,value:new n(i,a),writable:!1})}static delete(t){return Reflect.deleteProperty(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.ADMINISTRATION_SYMBOL)}static get(t){return Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.ADMINISTRATION_SYMBOL)}static isDefined(t){return Reflect.has(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.ADMINISTRATION_SYMBOL)}static isNotDefined(e){return!this.isDefined(e)}static with(e,t,r){let i;return i=n.get(e),i?t(i):r}}
+class n{keys;parent;proxy;root;watchers;constructor(e,t,r={},n={}){this.keys=e,this.parent=r,this.proxy=t,this.root=n,this.watchers=[]}onChange(){let e,i,a,s;e=this.watchers.filter((e=>e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN)),e.forEach((e=>{e.autorun.effect(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The autorun effect has been executed.",e)})),i=this.watchers.filter((e=>e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH)),i.forEach((e=>{e.dispatch.effect(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The dispatch effect has been executed.",e)})),a=this.watchers.filter((e=>e.reaction.value!==e.reaction.expression()&&e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION)),a.forEach((e=>{e.reaction.value=e.reaction.expression(),e.reaction.effect(e.reaction.value),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The reaction effect has been executed.",e)})),s=this.watchers.filter((e=>e.when.value!==e.when.predicate()&&e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN)),s.forEach((e=>{e.when.value=e.when.predicate(),e.when.value&&(e.when.effect(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Administration","onChange","The when effect has been executed.",e))})),n.get(this.parent)?.onChange()}static define(t,r,i,a,s){return Reflect.has(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.ADMINISTRATION_SYMBOL)?t:Object.defineProperty(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.ADMINISTRATION_SYMBOL,{configurable:!1,enumerable:!1,value:new n(r,i,a,s),writable:!1})}static update(e,t={},r={}){let i;return i=n.get(e),i?(i.parent=t,i.root=r,e):e}static delete(t){return Reflect.deleteProperty(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.ADMINISTRATION_SYMBOL)}static get(t){return Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.ADMINISTRATION_SYMBOL)}static isDefined(t){return Reflect.has(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.ADMINISTRATION_SYMBOL)}static isNotDefined(e){return!1===this.isDefined(e)}static with(e,t,r){let i;return i=n.get(e),i?t(i):r}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40851,6 +41034,41 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 
 /***/ }),
 
+/***/ "../state-manager/dist/modules/global.observable.js":
+/*!**********************************************************!*\
+  !*** ../state-manager/dist/modules/global.observable.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "GLOBAL_OBSERVABLE": () => (/* binding */ i)
+/* harmony export */ });
+/* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+const i={};_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(i,[],new Proxy(i,{}));
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
 /***/ "../state-manager/dist/modules/observable.js":
 /*!***************************************************!*\
   !*** ../state-manager/dist/modules/observable.js ***!
@@ -40865,11 +41083,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
 /* harmony import */ var _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../loggers/module.logger.js */ "../state-manager/dist/loggers/module.logger.js");
 /* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
+/* harmony import */ var _global_observable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./global.observable.js */ "../state-manager/dist/modules/global.observable.js");
 /* harmony import */ var _observable_object_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./observable.object.js */ "../state-manager/dist/modules/observable.object.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class s{static make(e,n){let a,i;return _administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.isDefined(e)?(_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.warn("observe","The target is already an observable.",e),e):(a={...e},_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe","The target has been cloned.",a),n.forEach((t=>{Object.defineProperty(e,t,s.getPropertyDescriptor(e,t)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe",`The property "${String(t)}" is now bound to the proxy.`)})),_observable_object_js__WEBPACK_IMPORTED_MODULE_2__.ObservableObject.makeProperties(e,s.getProxyHandler(e),a,n),i=new Proxy(a,s.getProxyHandler(e)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe","The clone has been proxied.",i),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(e,n,i),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe","The administration class has been set.",_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(e)),e)}static getPropertyDescriptor(e,r){return{configurable:!1,get:()=>_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration["with"](e,(e=>Reflect.get(e.proxy,r))),set:o=>_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration["with"](e,(e=>{Reflect.set(e.proxy,r,o)}))}}static getProxyHandler(n){return{defineProperty:(r,t,o)=>t!==_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY&&Reflect.defineProperty(r,t,o),deleteProperty:(o,s)=>{let a;return s!==_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY&&(a=Reflect.deleteProperty(o,s),!!a&&(_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(n)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(o)?.onChange(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Observable","getProxyHandler","deleteProperty","The property has been deleted.",[o,s]),!0))},get:(r,t,o)=>t===_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY||Reflect.get(r,t,o),set:(a,i,l,g)=>{let b;if(i===_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY)return!1;if(l===Reflect.get(a,i))return!0;if("object"==typeof l){if(b=_observable_object_js__WEBPACK_IMPORTED_MODULE_2__.ObservableObject.make(n,s.getProxyHandler(n),a,i,l,g),!b)return!1}else if(b=Reflect.set(a,i,l,g),!b)return!1;return _administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(n)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("ProxyObservable","getHandler","set","The value has been set.",[a,i,l]),!0}}}}
+class s{static make(e,o=Object.keys(e)){let a,i;return _administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.isDefined(e)?(_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.warn("observe","The target is already an observable.",e),e):(a={...e},_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe","The target has been cloned.",a),_observable_object_js__WEBPACK_IMPORTED_MODULE_2__.ObservableObject.makeProperties(e,s.getProxyHandler(e),a,o),i=new Proxy(a,s.getProxyHandler(e)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe","The clone has been proxied.",i),o.forEach((t=>{Object.defineProperty(e,t,s.getPropertyDescriptor(e,t)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe",`The property "${String(t)}" is now bound to the proxy.`,[e[t]])})),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(e,o,i),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("observe","The administration class has been set.",_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(e)),e)}static getPropertyDescriptor(e,r){return{configurable:!1,get:()=>_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration["with"](e,(e=>Reflect.get(e.proxy,r))),set:o=>_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration["with"](e,(e=>{Reflect.set(e.proxy,r,o)}))}}static getProxyHandler(a){return{defineProperty:(r,t,o)=>t!==_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY&&Reflect.defineProperty(r,t,o),deleteProperty:(n,s)=>{let i;return s!==_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY&&(i=Reflect.deleteProperty(n,s),!!i&&(_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(n)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_4__.GLOBAL_OBSERVABLE)?.onChange(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("Observable","getProxyHandler","deleteProperty","The property has been deleted.",[n,s]),!0))},get:(r,t,o)=>t===_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY||Reflect.get(r,t,o),set:(i,l,g,b)=>{let f;if(l===_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY)return!1;if(g===Reflect.get(i,l))return!0;if("object"==typeof g){if(f=_observable_object_js__WEBPACK_IMPORTED_MODULE_2__.ObservableObject.make(a,s.getProxyHandler(a),i,l,g,b),!f)return!1}else if(f=Reflect.set(i,l,g,b),!f)return!1;return _administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(i)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_4__.GLOBAL_OBSERVABLE)?.onChange(),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.verbose("ProxyObservable","getHandler","set","The value has been set.",[i,l,g]),!0}}}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40898,14 +41117,15 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ObservableMap": () => (/* binding */ n)
+/* harmony export */   "ObservableMap": () => (/* binding */ r)
 /* harmony export */ });
+/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
 /* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
-/* harmony import */ var _parent_object_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parent.object.js */ "../state-manager/dist/modules/parent.object.js");
+/* harmony import */ var _global_observable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.observable.js */ "../state-manager/dist/modules/global.observable.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class n{static make(n,r,a){let o,g,i;return o=a.clear.bind(a),g=a.delete.bind(a),i=a.set.bind(a),a.clear=()=>{o(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(n)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange()},a.delete=t=>{let r;return r=g(t),!!r&&(_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(n)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),!0)},a.set=(t,r)=>{let a;return a=i(t,r),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(n)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),a},_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(a,[],a),_parent_object_js__WEBPACK_IMPORTED_MODULE_1__.ParentObject.define(a,r),a}}
+class r{static make(o,a,i,g,s){let l,c,b;return r.isProxy(g)&&(g=r.toJS(g)),l=g.clear.bind(g),c=g.delete.bind(g),b=g.set.bind(g),g.clear=()=>{l(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(o)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(g)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE)?.onChange()},g.delete=e=>{let r;return r=c(e),!!r&&(_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(o)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(g)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE)?.onChange(),!0)},g.set=(e,r)=>{let a;return a=b(e,r),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(o)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE)?.onChange(),a},Object.defineProperty(g,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.IS_PROXY_KEY,{configurable:!1,enumerable:!1,value:!0,writable:!1}),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(g,[],g,a,o),Reflect.set(a,i,g,s)}static toJS(e){return new Map(e.entries())}static isProxy(t){return!0===Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.IS_PROXY_KEY)}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40934,17 +41154,16 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ObservableObject": () => (/* binding */ a)
+/* harmony export */   "ObservableObject": () => (/* binding */ s)
 /* harmony export */ });
-/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
+/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
 /* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
 /* harmony import */ var _observable_map_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./observable.map.js */ "../state-manager/dist/modules/observable.map.js");
 /* harmony import */ var _observable_set_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./observable.set.js */ "../state-manager/dist/modules/observable.set.js");
-/* harmony import */ var _parent_object_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parent.object.js */ "../state-manager/dist/modules/parent.object.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class a{static make(e,i,c,n,f,l){if(null===f)return Reflect.set(c,n,f,l);if(a.isPropertyNotProxiable(f))return Reflect.set(c,n,f,l);switch(!0){case f instanceof Map:case f instanceof Set:break;default:a.makeProperties(e,i,f,Object.keys(f))}if(a.isPropertyProxy(f))return Reflect.set(c,n,f,l);switch(!0){case f instanceof Map:_observable_map_js__WEBPACK_IMPORTED_MODULE_0__.ObservableMap.make(e,c,f);break;case f instanceof Set:_observable_set_js__WEBPACK_IMPORTED_MODULE_1__.ObservableSet.make(e,c,f);break;default:let a;return a=new Proxy(f,i),_administration_js__WEBPACK_IMPORTED_MODULE_2__.Administration.define(f,Object.keys(f),a),_parent_object_js__WEBPACK_IMPORTED_MODULE_3__.ParentObject.define(f,c),Reflect.set(c,n,a,l)}return!0}static makeProperties(e,t,r,o){return o.map((o=>{let s;return s=Reflect.get(r,o),"object"!=typeof s||a.make(e,t,r,o,Reflect.get(r,o),r)})).every(Boolean)}static isPropertyProxiable(e){if(!e?.toString)return!1;if(!0==e instanceof Array)return!0;switch(e.toString()){case"[object Object]":case"[object Map]":case"[object Set]":return!0;default:return!1}}static isPropertyNotProxiable(e){return!1===this.isPropertyProxiable(e)}static isPropertyProxy(t){return"object"==typeof t&&!0===Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_4__.IS_PROXY_KEY)}}
+class s{static make(e,i,a,c,n,f){if(null===n)return Reflect.set(a,c,n,f);if(s.isPropertyNotProxiable(n))return Reflect.set(a,c,n,f);switch(!0){case n instanceof Map:case n instanceof Set:break;default:s.makeProperties(e,i,n,Object.keys(n))}switch(!0){case n instanceof Map:return _observable_map_js__WEBPACK_IMPORTED_MODULE_0__.ObservableMap.make(e,a,c,n,f);case n instanceof Set:return _observable_set_js__WEBPACK_IMPORTED_MODULE_1__.ObservableSet.make(e,a,c,n,f);default:let l;return s.isPropertyProxy(n)&&(n={...n},_administration_js__WEBPACK_IMPORTED_MODULE_2__.Administration["delete"](n)),l=new Proxy(n,i),_administration_js__WEBPACK_IMPORTED_MODULE_2__.Administration.define(n,Object.keys(n),l,a,e),Reflect.set(a,c,l,f)}}static makeProperties(e,t,r,o){return o.map((o=>{let i;return i=Reflect.get(r,o),"object"!=typeof i||s.make(e,t,r,o,Reflect.get(r,o),r)})).every(Boolean)}static isPropertyProxiable(e){if(!e?.toString)return!1;if(!0==e instanceof Array)return!0;switch(e.toString()){case"[object Object]":case"[object Map]":case"[object Set]":return!0;default:return!1}}static isPropertyNotProxiable(e){return!1===this.isPropertyProxiable(e)}static isPropertyProxy(t){return!0===Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_3__.IS_PROXY_KEY)}static isPropertyNotProxy(e){return!1===s.isPropertyProxy(e)}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40973,14 +41192,15 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ObservableSet": () => (/* binding */ t)
+/* harmony export */   "ObservableSet": () => (/* binding */ a)
 /* harmony export */ });
+/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
 /* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
-/* harmony import */ var _parent_object_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parent.object.js */ "../state-manager/dist/modules/parent.object.js");
+/* harmony import */ var _global_observable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.observable.js */ "../state-manager/dist/modules/global.observable.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class t{static make(t,a,r){let o,d,g;return o=r.add.bind(r),d=r.clear.bind(r),g=r.delete.bind(r),r.add=n=>{let a;return a=o(n),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(t)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),a},r.clear=()=>{d(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(t)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(r)?.onChange()},r.delete=n=>{let a;return a=g(n),!!a&&(_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(t)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(r)?.onChange(),!0)},_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(r,[],r),_parent_object_js__WEBPACK_IMPORTED_MODULE_1__.ParentObject.define(r,a),r}}
+class a{static make(r,o,g,i,l){let s,d,c;return a.isProxy(i)&&(i=a.toJS(i)),s=i.add.bind(i),d=i.clear.bind(i),c=i.delete.bind(i),i.add=e=>{let a;return a=s(e),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(r)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(a)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE)?.onChange(),a},i.clear=()=>{d(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(r)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(i)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE)?.onChange()},i.delete=e=>{let a;return a=c(e),!!a&&(_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(r)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(i)?.onChange(),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.get(_global_observable_js__WEBPACK_IMPORTED_MODULE_1__.GLOBAL_OBSERVABLE)?.onChange(),!0)},Object.defineProperty(i,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.IS_PROXY_KEY,{configurable:!1,enumerable:!1,value:!0,writable:!1}),_administration_js__WEBPACK_IMPORTED_MODULE_0__.Administration.define(i,[],i,o,r),Reflect.set(o,g,i,l)}static toJS(e){return new Set(e.values())}static isProxy(t){return!0===Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_2__.IS_PROXY_KEY)}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -41016,42 +41236,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
 function e(e,o){return _observable_js__WEBPACK_IMPORTED_MODULE_0__.Observable.make(e,o)}
-
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (false) {}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ }),
-
-/***/ "../state-manager/dist/modules/parent.object.js":
-/*!******************************************************!*\
-  !*** ../state-manager/dist/modules/parent.object.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ParentObject": () => (/* binding */ r)
-/* harmony export */ });
-/* harmony import */ var _definitions_constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../definitions/constants.js */ "../state-manager/dist/definitions/constants.js");
-/* harmony import */ var _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../loggers/module.logger.js */ "../state-manager/dist/loggers/module.logger.js");
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
-
-class r{static define(r,a){return Reflect.has(r,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_0__.PARENT_OBJECT_SYMBOL)?(_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_1__.ModuleLogger.warn("ParentObject","define","The parent object is already defined.",a,r),r):Object.defineProperty(r,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_0__.PARENT_OBJECT_SYMBOL,{configurable:!1,enumerable:!1,value:a,writable:!1})}static get(t){return Reflect.get(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_0__.PARENT_OBJECT_SYMBOL)}static has(t){return Reflect.has(t,_definitions_constants_js__WEBPACK_IMPORTED_MODULE_0__.PARENT_OBJECT_SYMBOL)}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -41116,15 +41300,17 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "toJS": () => (/* binding */ r)
+/* harmony export */   "toJS": () => (/* binding */ a)
 /* harmony export */ });
 /* harmony import */ var _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../loggers/module.logger.js */ "../state-manager/dist/loggers/module.logger.js");
-/* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
+/* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
+/* harmony import */ var _observable_map_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./observable.map.js */ "../state-manager/dist/modules/observable.map.js");
 /* harmony import */ var _observable_object_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./observable.object.js */ "../state-manager/dist/modules/observable.object.js");
+/* harmony import */ var _observable_set_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./observable.set.js */ "../state-manager/dist/modules/observable.set.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-function r(s){let a;return a=Array.isArray(s)?[...s]:{...s},_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("toJS","The target has been cloned.",s,a),Object.keys(a).forEach((t=>{let s;if(s=Reflect.get(a,t),"object"==typeof s&&null!==s&&!_observable_object_js__WEBPACK_IMPORTED_MODULE_1__.ObservableObject.isPropertyNotProxiable(s))switch(!0){case s instanceof Map:let o;o=new Map(s.entries()),Reflect.set(a,t,o),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("toJS","The map has been cloned",s,o);break;case s instanceof Set:let l;l=new Set(s.entries()),Reflect.set(a,t,l),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("toJS","The set has been cloned",s,l);break;default:Reflect.set(a,t,r(s))}})),_administration_js__WEBPACK_IMPORTED_MODULE_2__.Administration["delete"](a),a}
+function a(l){let b;return b=Array.isArray(l)?[...l]:{...l},_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("toJS","The target has been cloned.",l,b),Object.keys(b).forEach((t=>{let l;if(l=Reflect.get(b,t),"object"==typeof l&&null!==l&&!_observable_object_js__WEBPACK_IMPORTED_MODULE_1__.ObservableObject.isPropertyNotProxiable(l))switch(!0){case l instanceof Map:let r;r=_observable_map_js__WEBPACK_IMPORTED_MODULE_2__.ObservableMap.toJS(l),Reflect.set(b,t,r),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("toJS","The map has been cloned",l,r);break;case l instanceof Set:let c;c=_observable_set_js__WEBPACK_IMPORTED_MODULE_3__.ObservableSet.toJS(l),Reflect.set(b,t,c),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("toJS","The set has been cloned",l,c);break;default:Reflect.set(b,t,a(l))}})),_administration_js__WEBPACK_IMPORTED_MODULE_4__.Administration["delete"](b),b}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -41155,16 +41341,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "watch": () => (/* binding */ i)
 /* harmony export */ });
-/* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @queelag/core */ "../state-manager/node_modules/@queelag/core/utils/array.utils.js");
-/* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @queelag/core */ "../state-manager/node_modules/@queelag/core/modules/noop.js");
-/* harmony import */ var _classes_watcher_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../classes/watcher.js */ "../state-manager/dist/classes/watcher.js");
+/* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @queelag/core */ "../state-manager/node_modules/@queelag/core/modules/noop.js");
+/* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @queelag/core */ "../state-manager/node_modules/@queelag/core/utils/array.utils.js");
+/* harmony import */ var _classes_watcher_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../classes/watcher.js */ "../state-manager/dist/classes/watcher.js");
 /* harmony import */ var _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../definitions/enums.js */ "../state-manager/dist/definitions/enums.js");
-/* harmony import */ var _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../loggers/module.logger.js */ "../state-manager/dist/loggers/module.logger.js");
+/* harmony import */ var _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../loggers/module.logger.js */ "../state-manager/dist/loggers/module.logger.js");
 /* harmony import */ var _administration_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./administration.js */ "../state-manager/dist/modules/administration.js");
+/* harmony import */ var _global_observable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global.observable.js */ "../state-manager/dist/modules/global.observable.js");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-function i(i,...h){let o;switch(i){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH:o=h[1];break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN:o=h[2]}return _administration_js__WEBPACK_IMPORTED_MODULE_1__.Administration["with"](o,(e=>{let c,o;switch(c=r=>()=>{e.watchers=_queelag_core__WEBPACK_IMPORTED_MODULE_2__.ArrayUtils.remove(e.watchers,(e=>e===r)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_3__.ModuleLogger.verbose("watch","disposer","The watcher has been disposed of.",r)},i){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN:o=e.watchers.find((e=>e.autorun.effect===h[0]&&e.type===i));break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH:o=e.watchers.find((e=>e.dispatch.effect===h[0]&&e.type===i));break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION:o=e.watchers.find((e=>e.reaction.effect===h[1]&&e.reaction.expression===h[0]&&e.type===i));break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN:o=e.watchers.find((e=>e.when.effect===h[1]&&e.when.predicate===h[0]&&e.type===i))}if(o)return _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_3__.ModuleLogger.warn("watch","This watcher already exists.",o),c(o);switch(i){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH:o=new _classes_watcher_js__WEBPACK_IMPORTED_MODULE_4__.Watcher(i,h[0]);break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN:o=new _classes_watcher_js__WEBPACK_IMPORTED_MODULE_4__.Watcher(i,h[1],h[0])}return e.watchers.push(o),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_3__.ModuleLogger.verbose("watch","The watcher has been pushed.",o),c(o)}),_queelag_core__WEBPACK_IMPORTED_MODULE_5__.noop)}
+function i(i,...h){let n,f,w,p;switch(i){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH:n=h[1];break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN:n=h[2]}if(f=_administration_js__WEBPACK_IMPORTED_MODULE_1__.Administration.get(n||_global_observable_js__WEBPACK_IMPORTED_MODULE_2__.GLOBAL_OBSERVABLE),!f)return _queelag_core__WEBPACK_IMPORTED_MODULE_3__.noop;switch(w=e=>()=>{f.watchers=_queelag_core__WEBPACK_IMPORTED_MODULE_4__.ArrayUtils.remove(f.watchers,(r=>r===e)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_5__.ModuleLogger.verbose("watch","disposer","The watcher has been disposed of.",e)},i){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN:p=f.watchers.find((e=>e.autorun.effect===h[0]&&e.type===i));break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH:p=f.watchers.find((e=>e.dispatch.effect===h[0]&&e.type===i));break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION:p=f.watchers.find((e=>e.reaction.effect===h[1]&&e.reaction.expression===h[0]&&e.type===i));break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN:p=f.watchers.find((e=>e.when.effect===h[1]&&e.when.predicate===h[0]&&e.type===i))}if(p)return _loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_5__.ModuleLogger.warn("watch","This watcher already exists.",p),w(p);switch(i){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.DISPATCH:p=new _classes_watcher_js__WEBPACK_IMPORTED_MODULE_6__.Watcher(i,h[0]);break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherType.WHEN:p=new _classes_watcher_js__WEBPACK_IMPORTED_MODULE_6__.Watcher(i,h[1],h[0])}return f.watchers.push(p),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_5__.ModuleLogger.verbose("watch","The watcher has been pushed.",p),w(p)}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
