@@ -62,4 +62,4 @@ class Store {
 }
 
 export const store = new Store()
-observe(store, ['library', 'object', 'primitive'])
+observe(store)

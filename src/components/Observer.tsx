@@ -2,7 +2,7 @@ import { ObserverProps } from '../definitions/props'
 import { useObserver } from '../hooks/use.observer'
 
 /**
- * Component that re-renders on targets properties changes.
+ * Component that re-renders when any of the properties used inside the children change.
  *
  * ```tsx
  * import React from 'react'
@@ -17,7 +17,7 @@ import { useObserver } from '../hooks/use.observer'
  *   }
  *
  *   return (
- *     <Observer targets={[store]}>
+ *     <Observer>
  *       {() => <button onClick={onClick}>{store.number}</button>}
  *     </Observer>
  *   )
@@ -27,5 +27,5 @@ import { useObserver } from '../hooks/use.observer'
  * @category Component
  */
 export function Observer(props: ObserverProps) {
-  return useObserver(props.children, props.targets)
+  return useObserver(props.children)
 }

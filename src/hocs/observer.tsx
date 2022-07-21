@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from 'react'
 import { useObserver } from '../hooks/use.observer'
 
 /**
- * Higher order component (HOC) that re-renders on targets properties changes.
+ * Higher order component (HOC) that re-renders when any of the properties used inside the function change.
  *
  * ```tsx
  * import React from 'react'
@@ -22,6 +22,6 @@ import { useObserver } from '../hooks/use.observer'
  *
  * @category HOC
  */
-export function observer<P = any>(fn: (props: P) => ReactNode, targets?: object[]): (props: P) => ReactElement {
-  return (props: P) => useObserver(() => fn(props), targets)
+export function observer<P = any>(fn: (props: P) => ReactNode): (props: P) => ReactElement {
+  return (props: P) => useObserver(() => fn(props))
 }

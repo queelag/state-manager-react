@@ -2,7 +2,7 @@ import { autorun, WatcherAutorunEffect } from '@queelag/state-manager'
 import { useEffect } from 'react'
 
 /**
- * Runs an effect on any target properties change.
+ * Runs an effect when any of the properties used inside the effect change.
  *
  * ```tsx
  * import React from 'react'
@@ -18,7 +18,7 @@ import { useEffect } from 'react'
  *
  *   useAutorun(() => {
  *     console.log(store.number)
- *   }, store)
+ *   })
  *
  *   return <button onClick={onClick} />
  * }
@@ -26,8 +26,8 @@ import { useEffect } from 'react'
  *
  * @category Hook
  */
-export function useAutorun<T extends object, U>(effect: WatcherAutorunEffect, target?: T) {
+export function useAutorun(effect: WatcherAutorunEffect) {
   useEffect(() => {
-    return autorun(effect, target)
+    return autorun(effect)
   }, [])
 }

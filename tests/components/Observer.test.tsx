@@ -8,7 +8,7 @@ describe('Observer', () => {
     let store: Store
 
     store = getTestStore()
-    render(<Observer targets={[store]}>{() => <span data-testid='number'>{store.number}</span>}</Observer>)
+    render(<Observer>{() => <span data-testid='number'>{store.number}</span>}</Observer>)
 
     expect(screen.getByTestId('number').innerHTML).toBe('0')
     act(() => {

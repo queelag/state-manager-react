@@ -1,6 +1,7 @@
-import { observe, watch, WatcherType } from '@queelag/state-manager'
-import { useEffect, useRef } from 'react'
+import { observe } from '@queelag/state-manager'
+import { useRef } from 'react'
 import { useDispatch } from './use.dispatch'
+import { useReaction } from './use.reaction'
 
 /**
  * Observes the target and automatically re-renders on target properties changes.
@@ -26,9 +27,7 @@ export function useObservable<T extends object, K extends keyof T>(target: T, ke
   const dispatch = useDispatch()
   const observable = useRef(observe(target, keys))
 
-  useEffect(() => {
-    return watch(WatcherType.DISPATCH, dispatch, observable.current)
-  }, [])
+  useReaction(() => keys.forEach((k: K) => observable.current[k]), dispatch)
 
   return observable.current
 }

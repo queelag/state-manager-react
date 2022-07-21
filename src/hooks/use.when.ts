@@ -20,8 +20,7 @@ import { useEffect } from 'react'
  *     () => store.boolean,
  *     () => {
  *       console.log(store.boolean)
- *     },
- *     store
+ *     }
  *   )
  *
  *   return <button onClick={onClick} />
@@ -30,8 +29,8 @@ import { useEffect } from 'react'
  *
  * @category Hook
  */
-export function useWhen<T extends object, U>(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect, target?: T) {
+export function useWhen(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect) {
   useEffect(() => {
-    return when(predicate, effect, target)
+    return when(predicate, effect)
   }, [])
 }

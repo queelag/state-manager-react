@@ -1,11 +1,9 @@
-import { GLOBAL_OBSERVABLE, watch, WatcherDisposer, WatcherType } from '@queelag/state-manager'
-import React, { Fragment, ReactElement, ReactNode, useEffect, useRef } from 'react'
-import { PrimitiveChildren } from '../definitions/types'
-import { ChildrenUtils } from '../utils/children.utils'
+import React, { Fragment, memo, ReactElement, ReactNode } from 'react'
 import { useDispatch } from './use.dispatch'
+import { useReaction } from './use.reaction'
 
 /**
- * Automatically re-renders when any of the targets properties change.
+ * Automatically re-renders when any of the properties used inside the function change.
  *
  * ```tsx
  * import React from 'react'
@@ -19,37 +17,17 @@ import { useDispatch } from './use.dispatch'
  *     store.number++
  *   }
  *
- *   return useObserver(() => <button onClick={onClick}>{store.number}</button>, [store])
+ *   return useObserver(() => <button onClick={onClick}>{store.number}</button>)
  * }
  * ```
  *
  * @category Hook
  */
-export function useObserver(fn: () => ReactNode, targets: object[] = [GLOBAL_OBSERVABLE]): ReactElement {
+export function useObserver(fn: () => ReactNode): ReactElement {
+  const Component = memo(() => <Fragment>{fn()}</Fragment>)
   const dispatch = useDispatch()
-  const pchildren = useRef(ChildrenUtils.flatten(fn()))
 
-  useEffect(() => {
-    let disposers: WatcherDisposer[]
+  useReaction(fn, dispatch)
 
-    disposers = targets.map((v: object) => {
-      return watch(
-        WatcherType.DISPATCH,
-        () => {
-          let children: PrimitiveChildren[]
-
-          children = ChildrenUtils.flatten(fn())
-          if (ChildrenUtils.areFlattenedEqual(pchildren.current, children)) return
-
-          pchildren.current = children
-          dispatch()
-        },
-        v
-      )
-    })
-
-    return () => disposers.forEach((v: WatcherDisposer) => v())
-  }, [])
-
-  return <Fragment>{fn()}</Fragment>
+  return <Component />
 }

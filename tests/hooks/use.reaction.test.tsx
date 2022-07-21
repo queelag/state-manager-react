@@ -13,7 +13,7 @@ describe('useReaction', () => {
     effect = jest.fn()
 
     Component = () => {
-      useReaction(expression, effect, store)
+      useReaction(expression, effect)
       return <Fragment />
     }
     render(<Component />)

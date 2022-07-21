@@ -13,7 +13,7 @@ describe('useWhen', () => {
     effect = jest.fn()
 
     Component = () => {
-      useWhen(predicate, effect, store)
+      useWhen(predicate, effect)
       return <Fragment />
     }
     render(<Component />)

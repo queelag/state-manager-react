@@ -2,7 +2,7 @@ import { reaction, WatcherReactionEffect, WatcherReactionExpression } from '@que
 import { useEffect } from 'react'
 
 /**
- * Runs an effect when the value returned from the expression changes.
+ * Runs an effect when any of the properties used inside the expression change.
  *
  * ```tsx
  * import React from 'react'
@@ -20,8 +20,7 @@ import { useEffect } from 'react'
  *     () => store.number,
  *     () => {
  *       console.log(store.number)
- *     },
- *     store
+ *     }
  *   )
  *
  *   return <button onClick={onClick} />
@@ -30,8 +29,8 @@ import { useEffect } from 'react'
  *
  * @category Hook
  */
-export function useReaction<T extends object, U>(expression: WatcherReactionExpression<U>, effect: WatcherReactionEffect<U>, target?: T) {
+export function useReaction<T>(expression: WatcherReactionExpression<T>, effect: WatcherReactionEffect<T>) {
   useEffect(() => {
-    return reaction(expression, effect, target)
+    return reaction(expression, effect)
   }, [])
 }

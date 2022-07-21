@@ -9,7 +9,7 @@ describe('observer', () => {
 
     store = getTestStore()
 
-    Component = observer(() => <span data-testid='number'>{store.number}</span>, [store])
+    Component = observer(() => <span data-testid='number'>{store.number}</span>)
     render(<Component />)
 
     expect(screen.getByTestId('number').innerHTML).toBe('0')

@@ -9,17 +9,17 @@ describe('useAutorun', () => {
     let store: Store, effect: WatcherAutorunEffect, Component: () => ReactElement
 
     store = getTestStore()
-    effect = jest.fn()
+    effect = jest.fn(() => store.number)
 
     Component = () => {
-      useAutorun(effect, store)
+      useAutorun(effect)
       return <Fragment />
     }
 
     render(<Component />)
 
-    expect(effect).not.toBeCalled()
-    store.number++
     expect(effect).toBeCalledTimes(1)
+    store.number++
+    expect(effect).toBeCalledTimes(2)
   })
 })

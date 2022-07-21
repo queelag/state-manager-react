@@ -18,6 +18,13 @@ export function App() {
     }
   )
 
+  useReaction(
+    () => store.primitive.object,
+    () => {
+      console.log('store.object', store.primitive.object)
+    }
+  )
+
   useWhen(
     () => store.primitive.boolean,
     () => {

@@ -1,6 +1,6 @@
 import { Environment } from '@queelag/core'
-import dayjs, { Dayjs } from 'dayjs'
 import { observe } from '@queelag/state-manager'
+import dayjs, { Dayjs } from 'dayjs'
 
 export class Store {
   /**
@@ -41,7 +41,7 @@ export function getTestStore(): Store {
   let store: Store
 
   store = new Store()
-  observe(store, Object.keys(store) as any)
+  observe(store)
 
   return store
 }
