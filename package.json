@@ -55,5 +55,5 @@
     "docs:build": "rm -f docs/main*.js && webpack -c ./docs/webpack.config.js && typedoc"
   },
   "sideEffects": false,
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
