@@ -175,6 +175,41 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 
 /***/ }),
 
+/***/ "../core/dist/utils/id.utils.js":
+/*!**************************************!*\
+  !*** ../core/dist/utils/id.utils.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "IDUtils": () => (/* binding */ t)
+/* harmony export */ });
+/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nanoid */ "../core/node_modules/nanoid/index.browser.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+class t{constructor(){}static prefixed(t){return t+"_"+(0,nanoid__WEBPACK_IMPORTED_MODULE_0__.nanoid)()}static unique(t=[]){let e;for(;e=(0,nanoid__WEBPACK_IMPORTED_MODULE_0__.nanoid)(),t.includes(e););return e}}
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
 /***/ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js":
 /*!***************************************************************************************!*\
   !*** ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js ***!
@@ -39818,8 +39853,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src */ "./src/hooks/use.reaction.ts");
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src */ "./src/hooks/use.when.ts");
 /* harmony import */ var _components_Libraries__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Libraries */ "./docs/src/components/Libraries.tsx");
+/* harmony import */ var _components_List__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/List */ "./docs/src/components/List.tsx");
 /* harmony import */ var _components_Objects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Objects */ "./docs/src/components/Objects.tsx");
 /* harmony import */ var _components_Primitives__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Primitives */ "./docs/src/components/Primitives.tsx");
+/* harmony import */ var _components_UI__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/UI */ "./docs/src/components/UI.tsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./docs/src/store.ts");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
@@ -39834,8 +39871,11 @@ _b = __webpack_require__.$Refresh$.signature();
 
 
 
+
+
 function App() {
     _b();
+    const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
     (0,_src__WEBPACK_IMPORTED_MODULE_1__.useAutorun)(() => {
         console.log('autorun', (0,_queelag_state_manager__WEBPACK_IMPORTED_MODULE_2__.toJS)(_store__WEBPACK_IMPORTED_MODULE_3__.store));
     });
@@ -39850,17 +39890,76 @@ function App() {
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { alignItems: 'flex-start', display: 'flex', flexDirection: 'column' } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Primitives"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Primitives__WEBPACK_IMPORTED_MODULE_6__.Primitives, null),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Primitives__WEBPACK_IMPORTED_MODULE_6__.Primitives, { state: state, setState: setState }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Objects"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Objects__WEBPACK_IMPORTED_MODULE_7__.Objects, null),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Objects__WEBPACK_IMPORTED_MODULE_7__.Objects, { state: state, setState: setState }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Libraries"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Libraries__WEBPACK_IMPORTED_MODULE_8__.Libraries, null)));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Libraries__WEBPACK_IMPORTED_MODULE_8__.Libraries, { state: state, setState: setState }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "List"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_List__WEBPACK_IMPORTED_MODULE_9__.List, { state: state, setState: setState }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "UI"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_UI__WEBPACK_IMPORTED_MODULE_10__.UI, { state: state, setState: setState })));
 }
 _a = App;
 __webpack_require__.$Refresh$.register(_a, "App");
-_b(App, "VOCRjt5a1KtVEZf9YIHPqk2Do1g=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useAutorun, _src__WEBPACK_IMPORTED_MODULE_4__.useReaction, _src__WEBPACK_IMPORTED_MODULE_4__.useReaction, _src__WEBPACK_IMPORTED_MODULE_5__.useWhen]);
+_b(App, "5s0p1br8c6mnA6iZn147ieEiYNs=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useAutorun, _src__WEBPACK_IMPORTED_MODULE_4__.useReaction, _src__WEBPACK_IMPORTED_MODULE_4__.useReaction, _src__WEBPACK_IMPORTED_MODULE_5__.useWhen]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./docs/src/components/Dialog.tsx":
+/*!****************************************!*\
+  !*** ./docs/src/components/Dialog.tsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Dialog": () => (/* binding */ Dialog)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.memo.observer.tsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+var _b;
+_b = __webpack_require__.$Refresh$.signature();
+
+
+
+function Dialog() {
+    _b();
+    const onClose = () => {
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.ui.dialog = false;
+    };
+    return (0,_src__WEBPACK_IMPORTED_MODULE_2__.useMemoObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, _store__WEBPACK_IMPORTED_MODULE_1__.store.ui.dialog && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dialog", { style: { display: 'flex', flexDirection: 'column' } },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "This is a Dialog"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: onClose }, "Close Dialog"))))));
+}
+_a = Dialog;
+__webpack_require__.$Refresh$.register(_a, "Dialog");
+_b(Dialog, "aRulHNeXtDeSDcpbnwPOf2wg9zE=", false, () => [_src__WEBPACK_IMPORTED_MODULE_2__.useMemoObserver]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -39893,7 +39992,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.observer.tsx");
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.memo.observer.tsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
@@ -39904,17 +40003,84 @@ _b = __webpack_require__.$Refresh$.signature();
 
 
 
-function Libraries() {
+function Libraries(props) {
     _b();
     console.log('RENDERING LIBRARIES');
-    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useMemoObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
             "dayjs: ",
             _store__WEBPACK_IMPORTED_MODULE_2__.store.library.dayjs.toString()))));
 }
 _a = Libraries;
 __webpack_require__.$Refresh$.register(_a, "Libraries");
-_b(Libraries, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useObserver]);
+_b(Libraries, "aRulHNeXtDeSDcpbnwPOf2wg9zE=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useMemoObserver]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./docs/src/components/List.tsx":
+/*!**************************************!*\
+  !*** ./docs/src/components/List.tsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "List": () => (/* binding */ List)
+/* harmony export */ });
+/* harmony import */ var _queelag_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @queelag/core */ "../core/dist/utils/id.utils.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.memo.observer.tsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+var _b;
+_b = __webpack_require__.$Refresh$.signature();
+
+
+
+
+function List(props) {
+    _b();
+    console.log('RENDERING LIST');
+    const onChange = (event) => {
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.string = event.target.value;
+    };
+    const onClickAddItem = () => {
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.array.push(_queelag_core__WEBPACK_IMPORTED_MODULE_2__.IDUtils.unique());
+    };
+    const onClickRemoveItem = (item) => {
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.array = _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.array.filter((v) => v !== item);
+    };
+    return (0,_src__WEBPACK_IMPORTED_MODULE_3__.useMemoObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { onChange: onChange, placeholder: 'Search', type: 'search', value: _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.string }),
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.array.length <= 0 && react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Empty"),
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.array.length > 0 && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, _store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.array.filter((v) => v.toLowerCase().includes(_store__WEBPACK_IMPORTED_MODULE_1__.store.primitive.string.toLowerCase().trim()))
+            .map((v) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: v, onClick: () => onClickRemoveItem(v) }, v))))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: onClickAddItem }, "add item"))));
+}
+_a = List;
+__webpack_require__.$Refresh$.register(_a, "List");
+_b(List, "aRulHNeXtDeSDcpbnwPOf2wg9zE=", false, () => [_src__WEBPACK_IMPORTED_MODULE_3__.useMemoObserver]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -39947,7 +40113,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.observer.tsx");
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.memo.observer.tsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
@@ -39958,10 +40124,10 @@ _b = __webpack_require__.$Refresh$.signature();
 
 
 
-function Objects() {
+function Objects(props) {
     _b();
     console.log('RENDERING OBJECTS');
-    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useMemoObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
             "date: ",
             _store__WEBPACK_IMPORTED_MODULE_2__.store.object.date.toString()),
@@ -39974,7 +40140,7 @@ function Objects() {
 }
 _a = Objects;
 __webpack_require__.$Refresh$.register(_a, "Objects");
-_b(Objects, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useObserver]);
+_b(Objects, "aRulHNeXtDeSDcpbnwPOf2wg9zE=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useMemoObserver]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40007,7 +40173,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.observer.tsx");
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.memo.observer.tsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
@@ -40018,10 +40184,10 @@ _b = __webpack_require__.$Refresh$.signature();
 
 
 
-function Primitives() {
+function Primitives(props) {
     _b();
     console.log('RENDERING PRIMITIVES');
-    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    return (0,_src__WEBPACK_IMPORTED_MODULE_1__.useMemoObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
             "array: ",
             JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.array)),
@@ -40044,6 +40210,9 @@ function Primitives() {
             "object: ",
             JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.object)),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            "string: ",
+            _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.string),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
             "symbol: ",
             _store__WEBPACK_IMPORTED_MODULE_2__.store.primitive.symbol.toString()),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
@@ -40052,7 +40221,66 @@ function Primitives() {
 }
 _a = Primitives;
 __webpack_require__.$Refresh$.register(_a, "Primitives");
-_b(Primitives, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useObserver]);
+_b(Primitives, "aRulHNeXtDeSDcpbnwPOf2wg9zE=", false, () => [_src__WEBPACK_IMPORTED_MODULE_1__.useMemoObserver]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./docs/src/components/UI.tsx":
+/*!************************************!*\
+  !*** ./docs/src/components/UI.tsx ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UI": () => (/* binding */ UI)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../src */ "./src/hooks/use.memo.observer.tsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store */ "./docs/src/store.ts");
+/* harmony import */ var _Dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Dialog */ "./docs/src/components/Dialog.tsx");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+var _b;
+_b = __webpack_require__.$Refresh$.signature();
+
+
+
+
+function UI(props) {
+    _b();
+    const onClickToggleDialog = () => {
+        _store__WEBPACK_IMPORTED_MODULE_1__.store.ui.dialog = !_store__WEBPACK_IMPORTED_MODULE_1__.store.ui.dialog;
+    };
+    return (0,_src__WEBPACK_IMPORTED_MODULE_2__.useMemoObserver)(() => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: onClickToggleDialog },
+            _store__WEBPACK_IMPORTED_MODULE_1__.store.ui.dialog ? 'Close' : 'Open',
+            " Dialog"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Dialog__WEBPACK_IMPORTED_MODULE_3__.Dialog, null))));
+}
+_a = UI;
+__webpack_require__.$Refresh$.register(_a, "UI");
+_b(UI, "aRulHNeXtDeSDcpbnwPOf2wg9zE=", false, () => [_src__WEBPACK_IMPORTED_MODULE_2__.useMemoObserver]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40136,6 +40364,7 @@ class Store {
     library;
     object;
     primitive;
+    ui;
     constructor() {
         if (_queelag_core__WEBPACK_IMPORTED_MODULE_1__.Environment.isWindowNotDefined) {
             return;
@@ -40159,6 +40388,9 @@ class Store {
             string: '',
             symbol: Symbol(),
             undefined: undefined
+        };
+        this.ui = {
+            dialog: false
         };
         // @ts-ignore
         window.store = this;
@@ -40459,6 +40691,84 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 
 /***/ }),
 
+/***/ "./src/hooks/use.memo.observer.tsx":
+/*!*****************************************!*\
+  !*** ./src/hooks/use.memo.observer.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useMemoObserver": () => (/* binding */ useMemoObserver)
+/* harmony export */ });
+/* harmony import */ var _use_observer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./use.observer */ "./src/hooks/use.observer.tsx");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _a;
+_a = __webpack_require__.$Refresh$.signature();
+
+/**
+ * Automatically re-renders when any of the properties used inside the function change.
+ *
+ * The difference with useObserver is that it will only re-render on observable changes, any other state changes will be ignored.
+ *
+ * ```tsx
+ * import React, { useState } from 'react'
+ * import { useMemoObserver } from '@queelag/state-manager-react'
+ * import { observe } from '@queelag/state-manager'
+ *
+ * const store = observe({ number: 0 })
+ *
+ * function App() {
+ *   const [state, setState] = useState(0)
+ *
+ *   const onClick = () => {
+ *     store.number++
+ *   }
+ *
+ *   const increaseState = () => {
+ *     setState(state + 1)
+ *   }
+ *
+ *   return useMemoObserver(
+ *     () => (
+ *       <Fragment>
+ *         <button onClick={onClick}>{store.number}</button>
+ *         <button onClick={increaseState}>{state}</button>
+ *       </Fragment>
+ *     )
+ *   )
+ * }
+ * ```
+ *
+ * @category Hook
+ */
+function useMemoObserver(fn, memo = true) {
+    _a();
+    return (0,_use_observer__WEBPACK_IMPORTED_MODULE_0__.useObserver)(fn, true);
+}
+_a(useMemoObserver, "V6gQiDY4afZNDcSHjVFQDeiM1XA=", false, () => [_use_observer__WEBPACK_IMPORTED_MODULE_0__.useObserver]);
+
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
 /***/ "./src/hooks/use.observer.tsx":
 /*!************************************!*\
   !*** ./src/hooks/use.observer.tsx ***!
@@ -40503,14 +40813,14 @@ _a = __webpack_require__.$Refresh$.signature();
  *
  * @category Hook
  */
-function useObserver(fn) {
+function useObserver(fn, memo = false) {
     _a();
-    const Component = (0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(() => react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, fn()));
+    const Component = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => () => react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, fn()), []);
     const dispatch = (0,_use_dispatch__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
     (0,_use_reaction__WEBPACK_IMPORTED_MODULE_2__.useReaction)(fn, dispatch);
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, null);
+    return memo ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, null) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, fn());
 }
-_a(useObserver, "ML8dpOqNG7IpaTC70E4EoFFF7h4=", false, () => [_use_dispatch__WEBPACK_IMPORTED_MODULE_1__.useDispatch, _use_reaction__WEBPACK_IMPORTED_MODULE_2__.useReaction]);
+_a(useObserver, "0BR60tQPX/PVgsszTCOmYymQbGc=", false, () => [_use_dispatch__WEBPACK_IMPORTED_MODULE_1__.useDispatch, _use_reaction__WEBPACK_IMPORTED_MODULE_2__.useReaction]);
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40731,7 +41041,7 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class r{key;receiver;target;type;value;constructor(e,t,r,s,c){this.key=e,this.receiver=t,this.target=r,this.type=s,this.value=c}get(){switch(this.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_ENTRIES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_VALUES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_ENTRIES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_VALUES:return Reflect.get(this.target,this.key)();case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_GET:return Reflect.get(this.target,"get")(this.key);case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.PROXY_HANDLER_GET:return Reflect.get(this.target,this.key,this.receiver)}}static match(r,s,c,i,E){let a,n,h,u,_;for(let i=0;i<r.length;i++)switch(a=r[i],a.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_ENTRIES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_ENTRIES:if(n=[...a.value],h=[...a.get()],n.length!==h.length)return!1;for(let e=0;e<n.length;e++){if(n[e][0]!==h[e][0])return!1;if(n[e][1]!==h[e][1])return!1}continue;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_VALUES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_VALUES:if(u=[...a.value],_=[...a.get()],u.length!==_.length)return!1;for(let e=0;e<u.length;e++)if(u[e]!==_[e])return!1;continue;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.PROXY_HANDLER_GET:if(a.value!==a.get())return!1;if("object"!=typeof E)continue;switch(s){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WriteType.PROXY_HANDLER_DELETE_PROPERTY:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WriteType.PROXY_HANDLER_SET:if(a.target===c)return!1}continue}return!0}}
+class r{key;receiver;target;type;value;constructor(e,t,r,s,c){this.key=e,this.receiver=t,this.target=r,this.type=s,this.value=c}get(){switch(this.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_ENTRIES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_VALUES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_ENTRIES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_VALUES:return Reflect.get(this.target,this.key)();case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_GET:return Reflect.get(this.target,"get")(this.key);case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.PROXY_HANDLER_GET:return Reflect.get(this.target,this.key,this.receiver)}}static match(r,s,c){let i,E,a,n,h,u,_;for(let g=0;g<r.length;g++)switch(i=r[g],i.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_ENTRIES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_ENTRIES:if(E=[...i.value],a=[...i.get()],E.length!==a.length)return!1;for(let e=0;e<E.length;e++){if(E[e][0]!==a[e][0])return!1;if(E[e][1]!==a[e][1])return!1}continue;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_VALUES:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_KEYS:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.SET_VALUES:if(n=[...i.value],h=[...i.get()],n.length!==h.length)return!1;for(let e=0;e<n.length;e++)if(n[e]!==h[e])return!1;continue;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.MAP_GET:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WatcherObservableType.PROXY_HANDLER_GET:if(u=i.value,_=i.get(),u!==_)return!1;if("object"!=typeof _)continue;switch(s){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WriteType.PROXY_HANDLER_DELETE_PROPERTY:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_0__.WriteType.PROXY_HANDLER_SET:if(i.target===c)return!1;continue}continue}return!0}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -40946,7 +41256,7 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class t{static get WatcherAutorun(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop}}static get WatcherReaction(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop,expression:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop}}static get WatcherRead(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop}}static get WatcherWhen(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop,predicate:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop}}}
+class t{static get WatcherAutorun(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop}}static get WatcherReaction(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop,expression:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop,value:void 0}}static get WatcherRead(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop}}static get WatcherWhen(){return{effect:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop,predicate:_queelag_core__WEBPACK_IMPORTED_MODULE_0__.noop,value:!1}}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -41288,7 +41598,7 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-class c{static watchers=[];static dispose(e){c.watchers=c.watchers.filter((s=>s!==e)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("WatcherManager","dispose","The watcher has been disposed of.",e)}static onRead(e,s,i,o,n=s){c.watchers.filter((e=>e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.READ)).forEach((r=>{r.read.effect(new _classes_watcher_observable_js__WEBPACK_IMPORTED_MODULE_2__.WatcherObservable(i,n,s,e,o)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("Administration","onRead","The read effect has been executed.",r)}))}static onWrite(a,i,o,n){c.watchers.forEach((f=>{switch(f.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:if(_classes_watcher_observable_js__WEBPACK_IMPORTED_MODULE_2__.WatcherObservable.match(f.observables,a,i,o,n))return}switch(f.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:let t;t=new _classes_watcher_js__WEBPACK_IMPORTED_MODULE_3__.Watcher(_definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.READ,(e=>{f.observables.push(e)})),f.observables=[],c.watchers.push(t),(0,_queelag_core__WEBPACK_IMPORTED_MODULE_4__.tc)((()=>f.autorun.effect())),(0,_queelag_core__WEBPACK_IMPORTED_MODULE_4__.tc)((()=>f.reaction.expression())),(0,_queelag_core__WEBPACK_IMPORTED_MODULE_4__.tc)((()=>f.when.predicate())),c.dispose(t)}switch(f.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:f.reaction.effect(f.reaction.expression());break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:f.when.predicate()&&f.when.effect()}}))}static find(e,s,t,a){switch(e){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.AUTORUN:return c.watchers.find((t=>t.autorun.effect===s&&t.type===e));case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:return c.watchers.find((r=>r.reaction.effect===s&&r.reaction.expression===t&&r.type===e));case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.READ:return c.watchers.find((t=>t.read.effect===s&&t.type===e));case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:return c.watchers.find((t=>t.when.effect===s&&t.when.predicate===a&&t.type===e))}}static getDisposer(e){return()=>c.dispose(e)}}
+class c{static watchers=[];static dispose(e){c.watchers=c.watchers.filter((t=>t!==e)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("WatcherManager","dispose","The watcher has been disposed of.",e)}static onRead(e,t,i,o,n=t){c.watchers.filter((e=>e.type===_definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.READ)).forEach((r=>{r.read.effect(new _classes_watcher_observable_js__WEBPACK_IMPORTED_MODULE_2__.WatcherObservable(i,n,t,e,o)),_loggers_module_logger_js__WEBPACK_IMPORTED_MODULE_0__.ModuleLogger.verbose("Administration","onRead","The read effect has been executed.",r)}))}static onWrite(a,i,o,n){c.watchers.forEach((o=>{switch(o.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:let e;if(e=o.reaction.expression(),e===o.reaction.value)return;o.reaction.value=e;break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:let t;if(t=o.when.predicate(),t===o.when.value)return;o.when.value=t}switch(o.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:if(_classes_watcher_observable_js__WEBPACK_IMPORTED_MODULE_2__.WatcherObservable.match(o.observables,a,i))return}switch(o.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.AUTORUN:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:let s;s=new _classes_watcher_js__WEBPACK_IMPORTED_MODULE_3__.Watcher(_definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.READ,(e=>{o.observables.push(e)})),o.observables=[],c.watchers.push(s),(0,_queelag_core__WEBPACK_IMPORTED_MODULE_4__.tc)((()=>o.autorun.effect())),(0,_queelag_core__WEBPACK_IMPORTED_MODULE_4__.tc)((()=>o.reaction.expression())),(0,_queelag_core__WEBPACK_IMPORTED_MODULE_4__.tc)((()=>o.when.predicate())),c.dispose(s)}switch(o.type){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:o.reaction.effect(o.reaction.value);break;case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:o.when.value&&o.when.effect()}}))}static find(e,t,s,a){switch(e){case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.AUTORUN:return c.watchers.find((s=>s.autorun.effect===t&&s.type===e));case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.REACTION:return c.watchers.find((r=>r.reaction.effect===t&&r.reaction.expression===s&&r.type===e));case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.READ:return c.watchers.find((s=>s.read.effect===t&&s.type===e));case _definitions_enums_js__WEBPACK_IMPORTED_MODULE_1__.WatcherType.WHEN:return c.watchers.find((s=>s.when.effect===t&&s.when.predicate===a&&s.type===e))}}static getDisposer(e){return()=>c.dispose(e)}}
 
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
@@ -43247,6 +43557,78 @@ function getWDSMetadata(SocketClient) {
 }
 
 module.exports = getWDSMetadata;
+
+
+/***/ }),
+
+/***/ "../core/node_modules/nanoid/index.browser.js":
+/*!****************************************************!*\
+  !*** ../core/node_modules/nanoid/index.browser.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "customAlphabet": () => (/* binding */ customAlphabet),
+/* harmony export */   "customRandom": () => (/* binding */ customRandom),
+/* harmony export */   "nanoid": () => (/* binding */ nanoid),
+/* harmony export */   "random": () => (/* binding */ random),
+/* harmony export */   "urlAlphabet": () => (/* reexport safe */ _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__.urlAlphabet)
+/* harmony export */ });
+/* harmony import */ var _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./url-alphabet/index.js */ "../core/node_modules/nanoid/url-alphabet/index.js");
+
+let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))
+let customRandom = (alphabet, defaultSize, getRandom) => {
+  let mask = (2 << (Math.log(alphabet.length - 1) / Math.LN2)) - 1
+  let step = -~((1.6 * mask * defaultSize) / alphabet.length)
+  return (size = defaultSize) => {
+    let id = ''
+    while (true) {
+      let bytes = getRandom(step)
+      let j = step
+      while (j--) {
+        id += alphabet[bytes[j] & mask] || ''
+        if (id.length === size) return id
+      }
+    }
+  }
+}
+let customAlphabet = (alphabet, size = 21) =>
+  customRandom(alphabet, size, random)
+let nanoid = (size = 21) =>
+  crypto.getRandomValues(new Uint8Array(size)).reduce((id, byte) => {
+    byte &= 63
+    if (byte < 36) {
+      id += byte.toString(36)
+    } else if (byte < 62) {
+      id += (byte - 26).toString(36).toUpperCase()
+    } else if (byte > 62) {
+      id += '-'
+    } else {
+      id += '_'
+    }
+    return id
+  }, '')
+
+
+
+/***/ }),
+
+/***/ "../core/node_modules/nanoid/url-alphabet/index.js":
+/*!*********************************************************!*\
+  !*** ../core/node_modules/nanoid/url-alphabet/index.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "urlAlphabet": () => (/* binding */ urlAlphabet)
+/* harmony export */ });
+let urlAlphabet =
+  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'
+
 
 
 /***/ })
