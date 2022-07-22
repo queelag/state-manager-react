@@ -27,7 +27,10 @@ export function useObservable<T extends object, K extends keyof T>(target: T, ke
   const dispatch = useDispatch()
   const observable = useRef(observe(target, keys))
 
-  useReaction(() => keys.forEach((k: K) => observable.current[k]), dispatch)
+  useReaction(() => {
+    keys.forEach((k: K) => observable.current[k])
+    return NaN
+  }, dispatch)
 
   return observable.current
 }

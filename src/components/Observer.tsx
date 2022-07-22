@@ -27,5 +27,5 @@ import { useObserver } from '../hooks/use.observer'
  * @category Component
  */
 export function Observer(props: ObserverProps) {
-  return useObserver(props.children)
+  return useObserver(props.children, props.memo)
 }

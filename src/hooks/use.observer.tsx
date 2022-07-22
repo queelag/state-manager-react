@@ -1,4 +1,4 @@
-import React, { Fragment, memo, ReactElement, ReactNode } from 'react'
+import React, { Fragment, ReactElement, ReactNode, useMemo } from 'react'
 import { useDispatch } from './use.dispatch'
 import { useReaction } from './use.reaction'
 
@@ -23,11 +23,11 @@ import { useReaction } from './use.reaction'
  *
  * @category Hook
  */
-export function useObserver(fn: () => ReactNode): ReactElement {
-  const Component = memo(() => <Fragment>{fn()}</Fragment>)
+export function useObserver(fn: () => ReactNode, memo: boolean = false): ReactElement {
+  const Component = useMemo(() => () => <Fragment>{fn()}</Fragment>, [])
   const dispatch = useDispatch()
 
   useReaction(fn, dispatch)
 
-  return <Component />
+  return memo ? <Component /> : <Fragment>{fn()}</Fragment>
 }

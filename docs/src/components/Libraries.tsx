@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import { useObserver } from '../../../src'
+import { useMemoObserver } from '../../../src'
+import { AppChildrenProps } from '../definitions/props'
 import { store } from '../store'
 
-export function Libraries() {
+export function Libraries(props: AppChildrenProps) {
   console.log('RENDERING LIBRARIES')
 
-  return useObserver(() => (
+  return useMemoObserver(() => (
     <Fragment>
       <span>dayjs: {store.library.dayjs.toString()}</span>
     </Fragment>

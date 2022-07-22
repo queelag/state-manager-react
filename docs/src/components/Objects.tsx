@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import { useObserver } from '../../../src'
+import { useMemoObserver } from '../../../src'
+import { AppChildrenProps } from '../definitions/props'
 import { store } from '../store'
 
-export function Objects() {
+export function Objects(props: AppChildrenProps) {
   console.log('RENDERING OBJECTS')
 
-  return useObserver(() => (
+  return useMemoObserver(() => (
     <Fragment>
       <span>date: {store.object.date.toString()}</span>
       <span>map: {JSON.stringify([...store.object.map.entries()])}</span>

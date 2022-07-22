@@ -25,10 +25,15 @@ interface Primitive {
   undefined: undefined
 }
 
+interface UI {
+  dialog: boolean
+}
+
 class Store {
   library: Library
   object: Object
   primitive: Primitive
+  ui: UI
 
   constructor() {
     if (Environment.isWindowNotDefined) {
@@ -54,6 +59,9 @@ class Store {
       string: '',
       symbol: Symbol(),
       undefined: undefined
+    }
+    this.ui = {
+      dialog: false
     }
 
     // @ts-ignore

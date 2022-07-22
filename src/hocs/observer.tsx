@@ -22,6 +22,6 @@ import { useObserver } from '../hooks/use.observer'
  *
  * @category HOC
  */
-export function observer<P = any>(fn: (props: P) => ReactNode): (props: P) => ReactElement {
-  return (props: P) => useObserver(() => fn(props))
+export function observer<P = any>(fn: (props: P) => ReactNode, memo?: boolean): (props: P) => ReactElement {
+  return (props: P) => useObserver(() => fn(props), memo)
 }
