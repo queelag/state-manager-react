@@ -3,8 +3,8 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.24.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
-    "@queelag/core": "^1.0.83",
-    "@queelag/state-manager": "^1.0.1",
+    "@queelag/core": "^1.1.8",
+    "@queelag/state-manager": "^1.0.9",
     "@rollup/plugin-typescript": "^8.3.2",
     "@testing-library/react": "^13.3.0",
     "@types/cookie": "^0.5.1",
@@ -55,5 +55,5 @@
     "docs:build": "rm -f docs/main*.js && webpack -c ./docs/webpack.config.js && typedoc"
   },
   "sideEffects": false,
-  "version": "1.0.5"
+  "version": "1.0.6"
 }
