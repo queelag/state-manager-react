@@ -1,6 +1,7 @@
 import { WatcherWhenEffect, WatcherWhenPredicate } from '@queelag/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 import { useWhen } from '../../src'
 import { getTestStore, Store } from '../get.test.store'
 
@@ -10,7 +11,7 @@ describe('useWhen', () => {
 
     store = getTestStore()
     predicate = () => store.boolean
-    effect = jest.fn()
+    effect = vi.fn()
 
     Component = () => {
       useWhen(predicate, effect)

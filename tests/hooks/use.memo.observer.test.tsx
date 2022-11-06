@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import React, { Fragment, ReactElement, useState } from 'react'
+import { describe, expect, it } from 'vitest'
 import { useMemoObserver } from '../../src'
 import { getTestStore, Store } from '../get.test.store'
 

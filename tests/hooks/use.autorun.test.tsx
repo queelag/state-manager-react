@@ -1,6 +1,7 @@
 import { WatcherAutorunEffect } from '@queelag/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 import { useAutorun } from '../../src'
 import { getTestStore, Store } from '../get.test.store'
 
@@ -9,7 +10,7 @@ describe('useAutorun', () => {
     let store: Store, effect: WatcherAutorunEffect, Component: () => ReactElement
 
     store = getTestStore()
-    effect = jest.fn(() => store.number)
+    effect = vi.fn(() => store.number)
 
     Component = () => {
       useAutorun(effect)

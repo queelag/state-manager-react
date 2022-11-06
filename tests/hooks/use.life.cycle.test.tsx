@@ -1,5 +1,6 @@
 import { render, RenderResult } from '@testing-library/react'
 import React, { Fragment, MutableRefObject, ReactElement } from 'react'
+import { describe, expect, it } from 'vitest'
 import { ComponentLifeCycle, useLifeCycle } from '../../src'
 
 describe('useLifeCycle', () => {

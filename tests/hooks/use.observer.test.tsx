@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react'
 import React, { ReactElement } from 'react'
+import { describe, expect, it } from 'vitest'
 import { useObserver } from '../../src'
 import { getTestStore, Store } from '../get.test.store'
 

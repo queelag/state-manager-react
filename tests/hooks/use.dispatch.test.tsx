@@ -1,12 +1,13 @@
 import { render, RenderResult, screen } from '@testing-library/react'
 import React, { ReactElement, useEffect, useRef } from 'react'
+import { describe, expect, it, Mock, vi } from 'vitest'
 import { useDispatch } from '../../src'
 
 describe('useDispatch', () => {
   it('causes a re-render only when the component is mounted', async () => {
-    let onDispatch: jest.Mock, Component: () => ReactElement, result: RenderResult
+    let onDispatch: Mock, Component: () => ReactElement, result: RenderResult
 
-    onDispatch = jest.fn()
+    onDispatch = vi.fn()
 
     Component = () => {
       const dispatch = useDispatch(onDispatch)

@@ -1,6 +1,7 @@
 import { WatcherReactionEffect, WatcherReactionExpression } from '@queelag/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 import { useReaction } from '../../src'
 import { getTestStore, Store } from '../get.test.store'
 
@@ -10,7 +11,7 @@ describe('useReaction', () => {
 
     store = getTestStore()
     expression = () => store.number
-    effect = jest.fn()
+    effect = vi.fn()
 
     Component = () => {
       useReaction(expression, effect)

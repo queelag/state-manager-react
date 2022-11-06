@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import React, { ReactElement } from 'react'
+import { describe, expect, it } from 'vitest'
 import { useObservable } from '../../src'
 
 describe('useObservable', () => {
