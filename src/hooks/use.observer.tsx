@@ -7,8 +7,8 @@ import { useReaction } from './use.reaction'
  *
  * ```tsx
  * import React from 'react'
- * import { useObserver } from '@queelag/state-manager-react'
- * import { observe } from '@queelag/state-manager'
+ * import { useObserver } from '@aracna/state-manager-react'
+ * import { observe } from '@aracna/state-manager'
  *
  * const store = observe({ number: 0 })
  *

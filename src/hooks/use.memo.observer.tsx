@@ -8,8 +8,8 @@ import { useObserver } from './use.observer'
  *
  * ```tsx
  * import React, { useState } from 'react'
- * import { useMemoObserver } from '@queelag/state-manager-react'
- * import { observe } from '@queelag/state-manager'
+ * import { useMemoObserver } from '@aracna/state-manager-react'
+ * import { observe } from '@aracna/state-manager'
  *
  * const store = observe({ number: 0 })
  *

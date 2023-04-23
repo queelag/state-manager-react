@@ -1,5 +1,5 @@
-import { Environment } from '@queelag/core'
-import { observe } from '@queelag/state-manager'
+import { Environment } from '@aracna/core'
+import { observe } from '@aracna/state-manager'
 import dayjs, { Dayjs } from 'dayjs'
 
 export class Store {

@@ -1,4 +1,4 @@
-import { autorun, WatcherAutorunEffect } from '@queelag/state-manager'
+import { autorun, WatcherAutorunEffect } from '@aracna/state-manager'
 import { useEffect } from 'react'
 
 /**
@@ -6,8 +6,8 @@ import { useEffect } from 'react'
  *
  * ```tsx
  * import React from 'react'
- * import { useAutorun } from '@queelag/state-manager-react'
- * import { observe } from '@queelag/state-manager'
+ * import { useAutorun } from '@aracna/state-manager-react'
+ * import { observe } from '@aracna/state-manager'
  *
  * const store = observe({ number: 0 })
  *

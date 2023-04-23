@@ -2,7 +2,7 @@ import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 
 export default {
-  external: ['@queelag/core', '@queelag/state-manager', 'react'],
+  external: ['@aracna/core', '@aracna/state-manager', 'react'],
   input: 'src/index.ts',
   output: [
     {

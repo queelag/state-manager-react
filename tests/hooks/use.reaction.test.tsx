@@ -1,4 +1,4 @@
-import { WatcherReactionEffect, WatcherReactionExpression } from '@queelag/state-manager'
+import { WatcherReactionEffect, WatcherReactionExpression } from '@aracna/state-manager'
 import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
 import { describe, expect, it, vi } from 'vitest'

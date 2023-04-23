@@ -6,8 +6,8 @@ import { useObserver } from '../hooks/use.observer'
  *
  * ```tsx
  * import React from 'react'
- * import { observer } from '@queelag/state-manager-react'
- * import { observe } from '@queelag/state-manager'
+ * import { observer } from '@aracna/state-manager-react'
+ * import { observe } from '@aracna/state-manager'
  *
  * const store = observe({ number: 0 })
  *

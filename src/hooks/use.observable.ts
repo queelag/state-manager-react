@@ -1,4 +1,4 @@
-import { observe } from '@queelag/state-manager'
+import { observe } from '@aracna/state-manager'
 import { useRef } from 'react'
 import { useDispatch } from './use.dispatch'
 import { useReaction } from './use.reaction'
@@ -8,7 +8,7 @@ import { useReaction } from './use.reaction'
  *
  * ```tsx
  * import React from 'react'
- * import { useObservable } from '@queelag/state-manager-react'
+ * import { useObservable } from '@aracna/state-manager-react'
  *
  * function App() {
  *   const store = useObservable({ number: 0 })

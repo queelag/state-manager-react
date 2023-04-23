@@ -1,4 +1,4 @@
-import { WatcherWhenEffect, WatcherWhenPredicate, when } from '@queelag/state-manager'
+import { WatcherWhenEffect, WatcherWhenPredicate, when } from '@aracna/state-manager'
 import { useEffect } from 'react'
 
 /**
@@ -6,8 +6,8 @@ import { useEffect } from 'react'
  *
  * ```tsx
  * import React from 'react'
- * import { useWhen } from '@queelag/state-manager-react'
- * import { observe } from '@queelag/state-manager'
+ * import { useWhen } from '@aracna/state-manager-react'
+ * import { observe } from '@aracna/state-manager'
  *
  * const store = observe({ boolean: false })
  *

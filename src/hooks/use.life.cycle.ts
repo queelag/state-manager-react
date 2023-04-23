@@ -6,7 +6,7 @@ import { ComponentLifeCycle } from '../definitions/enums'
  *
  * ```tsx
  * import React, { useEffect } from 'react'
- * import { useLifeCycle } from '@queelag/state-manager-react'
+ * import { useLifeCycle } from '@aracna/state-manager-react'
  *
  * function App() {
  *   const life = useLifeCycle()
