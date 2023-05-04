@@ -1,6 +1,6 @@
+import { useDispatch } from '@aracna/react'
 import { observe } from '@aracna/state-manager'
 import { useRef } from 'react'
-import { useDispatch } from './use.dispatch'
 import { useReaction } from './use.reaction'
 
 /**

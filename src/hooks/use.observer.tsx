@@ -1,5 +1,5 @@
+import { useDispatch } from '@aracna/react'
 import React, { Fragment, ReactElement, ReactNode, useMemo } from 'react'
-import { useDispatch } from './use.dispatch'
 import { useReaction } from './use.reaction'
 
 /**
