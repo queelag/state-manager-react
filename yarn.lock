@@ -32,6 +32,11 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.15.tgz#dffdc2a6d977783fe59d74187117caba764ca034"
   integrity sha512-7CMkQqOEEdBsPO9rb8oK/pgePO9Nws8vnOpTQZjeEft2UD0DQN5PernyC6Fx0SedWW0okQgeEdBZn0vjWSZSoA==
 
+"@aracna/web@latest":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.16.tgz#67c65c45a5ecdcf9082d683c3248dee44f997b4d"
+  integrity sha512-clc6OX+7+yn9XOYqUqKpQNXJxhm1nEuah+sDY8t0kB5graBarZKes5RL38t/zGmaRcemkYONnnVVpW5CjgDWIQ==
+
 "@babel/code-frame@^7.10.4":
   version "7.21.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.21.4.tgz#d0fa9e4413aca81f2b23b9442797bda1826edb39"
