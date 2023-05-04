@@ -15,9 +15,10 @@ build({
   ...OPTIONS,
   entryPoints: await glob('./src/**/*.{ts,tsx}'),
   format: 'esm',
+  outdir: 'dist',
+  outExtension: { '.js': '.mjs' },
   packages: 'external',
-  platform: 'neutral',
-  outdir: 'dist'
+  platform: 'neutral'
 }).catch(() => process.exit(1))
 
 /**
@@ -25,12 +26,11 @@ build({
  */
 build({
   ...OPTIONS,
-  bundle: true,
-  entryPoints: ['src/index.ts'],
+  entryPoints: await glob('./src/**/*.{ts,tsx}'),
   format: 'cjs',
+  outdir: 'dist',
   packages: 'external',
-  platform: 'neutral',
-  outfile: 'dist/index.cjs.js'
+  platform: 'neutral'
 }).catch(() => process.exit(1))
 
 /**
@@ -41,7 +41,7 @@ build({
   bundle: true,
   entryPoints: ['src/index.ts'],
   format: 'iife',
-  globalName: 'AracnaCore',
+  globalName: 'AracnaStateManagerReact',
   platform: 'browser',
   outfile: 'dist/index.iife.js'
 }).catch(() => process.exit(1))
