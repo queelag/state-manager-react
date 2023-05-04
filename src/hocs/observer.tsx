@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react'
-import { useObserver } from '../hooks/use.observer'
+import { useObserver } from '../hooks/use.observer.js'
 
 /**
  * Higher order component (HOC) that re-renders when any of the properties used inside the function change.

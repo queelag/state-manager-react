@@ -1,6 +1,6 @@
 import { useDispatch } from '@aracna/react'
 import React, { Fragment, ReactElement, ReactNode, useMemo } from 'react'
-import { useReaction } from './use.reaction'
+import { useReaction } from './use.reaction.js'
 
 /**
  * Automatically re-renders when any of the properties used inside the function change.
