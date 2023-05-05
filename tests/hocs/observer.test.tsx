@@ -2,7 +2,7 @@ import { act, render, screen } from '@testing-library/react'
 import React, { ReactElement } from 'react'
 import { describe, expect, it } from 'vitest'
 import { observer } from '../../src'
-import { getTestStore, Store } from '../get.test.store'
+import { Store, getTestStore } from '../get-test-store'
 
 describe('observer', () => {
   it('works', () => {

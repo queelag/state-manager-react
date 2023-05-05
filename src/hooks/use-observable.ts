@@ -1,7 +1,7 @@
 import { useDispatch } from '@aracna/react'
 import { observe } from '@aracna/state-manager'
 import { useRef } from 'react'
-import { useReaction } from './use.reaction.js'
+import { useReaction } from './use-reaction.js'
 
 /**
  * Observes the target and automatically re-renders on target properties changes.

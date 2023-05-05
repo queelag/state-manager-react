@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react'
-import { useObserver } from './use.observer.js'
+import { useObserver } from './use-observer.js'
 
 /**
  * Automatically re-renders when any of the properties used inside the function change.

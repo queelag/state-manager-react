@@ -1,5 +1,5 @@
 import { ObserverProps } from '../definitions/props.js'
-import { useObserver } from '../hooks/use.observer.js'
+import { useObserver } from '../hooks/use-observer.js'
 
 /**
  * Component that re-renders when any of the properties used inside the children change.

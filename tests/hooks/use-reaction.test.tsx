@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { useReaction } from '../../src'
-import { getTestStore, Store } from '../get.test.store'
+import { Store, getTestStore } from '../get-test-store'
 
 describe('useReaction', () => {
   it('runs only on expression value change', async () => {

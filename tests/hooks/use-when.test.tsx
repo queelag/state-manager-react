@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import React, { Fragment, ReactElement } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { useWhen } from '../../src'
-import { getTestStore, Store } from '../get.test.store'
+import { Store, getTestStore } from '../get-test-store'
 
 describe('useWhen', () => {
   it('runs only when predicate is truthy', async () => {

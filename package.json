@@ -1,34 +1,36 @@
 {
   "author": "Dario Sechi",
   "devDependencies": {
-    "@aracna/core": "latest",
-    "@aracna/react": "latest",
-    "@aracna/state-manager": "latest",
-    "@aracna/web": "latest",
-    "@microsoft/api-extractor": "latest",
-    "@testing-library/react": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "@vitest/coverage-c8": "latest",
-    "@vitest/ui": "latest",
-    "dayjs": "latest",
-    "esbuild": "latest",
-    "glob": "latest",
-    "jsdom": "latest",
-    "prettier": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "superstruct": "latest",
-    "tslib": "latest",
-    "typedoc": "latest",
-    "typescript": "latest",
-    "vitest": "latest"
+    "@aracna/core": "^1.1.25",
+    "@aracna/react": "^1.0.17",
+    "@aracna/state-manager": "^1.0.21",
+    "@aracna/web": "^1.0.24",
+    "@microsoft/api-extractor": "^7.34.8",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.5",
+    "@types/react-dom": "^18.2.3",
+    "@vitest/coverage-c8": "^0.31.0",
+    "@vitest/ui": "^0.31.0",
+    "dayjs": "^1.11.7",
+    "esbuild": "^0.17.18",
+    "glob": "^10.2.2",
+    "jsdom": "^22.0.0",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "superstruct": "^1.0.3",
+    "tslib": "^2.5.0",
+    "typedoc": "^0.24.6",
+    "typescript": "^5.0.4",
+    "vitest": "^0.31.0"
   },
   "exports": {
-    "import": "./index.js",
-    "require": {
-      "default": "./index.cjs.js",
-      "types": "./index.d.ts"
+    ".": {
+      "import": "./index.js",
+      "require": {
+        "default": "./index.cjs.js",
+        "types": "./index.d.ts"
+      }
     }
   },
   "license": "MIT",
@@ -40,14 +42,9 @@
     "@aracna/react": ">= 1.0.0",
     "@aracna/state-manager": ">= 1.0.0",
     "@aracna/web": ">= 1.0.0",
-    "react": ">= 18.2.0",
-    "react-dom": ">= 18.2.0"
+    "react": ">= 18.2.0"
   },
   "repository": "https://github.com/aracna/state-manager-react",
-  "resolutions": {
-    "@types/react": "18.2.5",
-    "@types/react-dom": "18.0.11"
-  },
   "scripts": {
     "test": "yarn vitest run",
     "build": "rm -rf dist && node esbuild.mjs && yarn tsc && yarn api-extractor run --local",
