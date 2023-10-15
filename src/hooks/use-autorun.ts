@@ -1,8 +1,8 @@
 import { autorun, WatcherAutorunEffect } from '@aracna/state-manager'
-import { useEffect } from 'react'
+import { DependencyList, useEffect } from 'react'
 
-export function useAutorun(effect: WatcherAutorunEffect) {
+export function useAutorun(effect: WatcherAutorunEffect, deps: DependencyList = []) {
   useEffect(() => {
     return autorun(effect)
-  }, [])
+  }, deps)
 }

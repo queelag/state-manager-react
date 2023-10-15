@@ -1,8 +1,8 @@
 import { WatcherWhenEffect, WatcherWhenPredicate, when } from '@aracna/state-manager'
-import { useEffect } from 'react'
+import { DependencyList, useEffect } from 'react'
 
-export function useWhen(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect) {
+export function useWhen(predicate: WatcherWhenPredicate, effect: WatcherWhenEffect, deps: DependencyList = []) {
   useEffect(() => {
     return when(predicate, effect)
-  }, [])
+  }, deps)
 }
