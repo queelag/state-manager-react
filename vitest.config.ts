@@ -8,6 +8,7 @@ export default defineConfig({
       reporter: ['lcov']
     },
     environment: 'jsdom',
+    globals: true,
     include: ['tests/**/*.test.{ts,tsx}']
   }
 })
