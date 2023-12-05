@@ -6,17 +6,17 @@ settings:
 
 devDependencies:
   '@aracna/core':
-    specifier: ^1.1.59
-    version: 1.1.59
+    specifier: ^1.1.62
+    version: 1.1.62
   '@aracna/react':
-    specifier: ^1.0.41
-    version: 1.0.41(@aracna/core@1.1.59)(@aracna/web@1.0.60)(@types/react@18.2.37)(react@18.2.0)
+    specifier: ^1.0.43
+    version: 1.0.43(@aracna/core@1.1.62)(@aracna/web@1.0.60)(@types/react@18.2.37)(react@18.2.0)
   '@aracna/state-manager':
-    specifier: ^1.0.32
-    version: 1.0.32(@aracna/core@1.1.59)
+    specifier: ^1.0.33
+    version: 1.0.33(@aracna/core@1.1.62)
   '@aracna/web':
     specifier: ^1.0.60
-    version: 1.0.60(@aracna/core@1.1.59)
+    version: 1.0.60(@aracna/core@1.1.62)
   '@microsoft/api-extractor':
     specifier: ^7.38.3
     version: 7.38.3
@@ -82,8 +82,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.20
     dev: true
 
-  /@aracna/core@1.1.59:
-    resolution: {integrity: sha512-3J6aMZkrPAijoHZ9791bGN/sZJO38vZf7IEV5GlqXXKmAoKn72p232ggvHroiaC98dNgL+Zx4qf5+5/2h0dZpQ==}
+  /@aracna/core@1.1.62:
+    resolution: {integrity: sha512-WvrAxubKljt+GVmhlsvZI+D36x9qi81Yt0bzdY6npTW/Xov1UbAiPM3xrd2xQP9E9Ej8rWVdwcTFPG+AoaXjbA==}
     engines: {node: '>=20', pnpm: '>=8'}
     dependencies:
       '@types/cookie': 0.5.4
@@ -93,35 +93,35 @@ packages:
       rfc4648: 1.5.3
     dev: true
 
-  /@aracna/react@1.0.41(@aracna/core@1.1.59)(@aracna/web@1.0.60)(@types/react@18.2.37)(react@18.2.0):
-    resolution: {integrity: sha512-KOPGDLGo9t9/BXCnBMY/9AbuCj/fFDm91AGhVkfMjcCLvdjrhvwiEizLOelp2ThGPpxs6EApAolGd4IbYMD6Nw==}
+  /@aracna/react@1.0.43(@aracna/core@1.1.62)(@aracna/web@1.0.60)(@types/react@18.2.37)(react@18.2.0):
+    resolution: {integrity: sha512-DHGDAckAJdJKzcGRqVoPd/6nB6GOopzRO1k5dp+ShcKeAKZ65WVrp7Tg2tX5vcuhIxhWmE4KO/HkMF7xm+XW+g==}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/web': '>= 1.0.0'
       react: '>= 18.2.0'
     dependencies:
-      '@aracna/core': 1.1.59
-      '@aracna/web': 1.0.60(@aracna/core@1.1.59)
+      '@aracna/core': 1.1.62
+      '@aracna/web': 1.0.60(@aracna/core@1.1.62)
       '@lit/react': 1.0.2(@types/react@18.2.37)
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
     dev: true
 
-  /@aracna/state-manager@1.0.32(@aracna/core@1.1.59):
-    resolution: {integrity: sha512-rLBT2mmGXhm/eVUHoBdib8FtOMDXOEzSJ2YF02STkakvbYCjBy0ogcHR4enLl0Svgy330TS58xau/EDlThiG0g==}
+  /@aracna/state-manager@1.0.33(@aracna/core@1.1.62):
+    resolution: {integrity: sha512-ULjn6axkuLrJzXtjWNnMsJjwiXLTXrIYNrYufNWjoOxGXLxLBtFsYOEXrVPSVffT0wp87uuy7+wg7ELx1aimtw==}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
     dependencies:
-      '@aracna/core': 1.1.59
+      '@aracna/core': 1.1.62
     dev: true
 
-  /@aracna/web@1.0.60(@aracna/core@1.1.59):
+  /@aracna/web@1.0.60(@aracna/core@1.1.62):
     resolution: {integrity: sha512-oKG/s23QvSiywkhZk0SferJdrvVdRUPeZiv8LFTeUvAWGkj6B0LB0uM2eBLi+J/uEPZR/JCTKCI4tPyKrvrQVg==}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
     dependencies:
-      '@aracna/core': 1.1.59
+      '@aracna/core': 1.1.62
     dev: true
 
   /@babel/code-frame@7.22.13:
