@@ -12,8 +12,8 @@ devDependencies:
     specifier: ^1.0.45
     version: 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
   '@aracna/state-manager':
-    specifier: ^1.0.36
-    version: 1.0.36(@aracna/core@1.1.77)
+    specifier: ^1.0.37
+    version: 1.0.37(@aracna/core@1.1.77)
   '@aracna/web':
     specifier: ^1.0.69
     version: 1.0.69(@aracna/core@1.1.77)
@@ -109,8 +109,8 @@ packages:
       - '@types/react'
     dev: true
 
-  /@aracna/state-manager@1.0.36(@aracna/core@1.1.77):
-    resolution: {integrity: sha512-zhLsbyKWmU1viE6J6vCq3beocYXDw5s4Y3mOE3PUz8UtzoQ37ewdzoPZrsymE6cDxhkln7GspeRioVoiykFJIA==}
+  /@aracna/state-manager@1.0.37(@aracna/core@1.1.77):
+    resolution: {integrity: sha512-QGnFGqzqTVHPtjLy6qm+2sXx7wJl2urm8AhFnjfEWbFNcIisu1+nMU41B2oz2++TFo+U35E59a6jWJmSITIGLw==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'

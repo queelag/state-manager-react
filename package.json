@@ -3,7 +3,7 @@
   "devDependencies": {
     "@aracna/core": "^1.1.77",
     "@aracna/react": "^1.0.45",
-    "@aracna/state-manager": "^1.0.36",
+    "@aracna/state-manager": "^1.0.37",
     "@aracna/web": "^1.0.69",
     "@microsoft/api-extractor": "^7.39.0",
     "@testing-library/react": "^14.1.2",
