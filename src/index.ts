@@ -1,5 +1,5 @@
 export * from './components/observer.js'
-export * from './definitions/enums.js'
+export type * from './definitions/props.js'
 export * from './hocs/observer.js'
 export * from './hooks/use-autorun.js'
 export * from './hooks/use-memo-observer.js'
