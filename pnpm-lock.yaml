@@ -12,11 +12,11 @@ importers:
         specifier: ^1.1.82
         version: 1.1.82
       '@aracna/react':
-        specifier: ^1.0.50
-        version: 1.0.50(@aracna/core@1.1.82)(@aracna/web@1.0.75(@aracna/core@1.1.82))(@types/react@18.3.3)(react@18.3.1)
+        specifier: ^1.0.51
+        version: 1.0.51(@aracna/core@1.1.82)(@aracna/web@1.0.75(@aracna/core@1.1.82))(@types/react@18.3.3)(react@18.3.1)
       '@aracna/state-manager':
-        specifier: ^1.0.38
-        version: 1.0.38(@aracna/core@1.1.82)
+        specifier: ^1.0.39
+        version: 1.0.39(@aracna/core@1.1.82)
       '@aracna/web':
         specifier: ^1.0.75
         version: 1.0.75(@aracna/core@1.1.82)
@@ -86,16 +86,16 @@ packages:
     resolution: {integrity: sha512-PHCBnC+xg1qrRpMc5l0gkqMKP6uSxpYZ2qDeQPpKVKKXGviJHyCGFnWGHcMXF23cHv3OzUyFo81qNuPkzwFS/Q==}
     engines: {node: '>=16', pnpm: '>=8'}
 
-  '@aracna/react@1.0.50':
-    resolution: {integrity: sha512-/OzqT6IIX4rP6gjPkW8oyaKpe5RV7Rp0Vczrwah+AESJi1K0VIH0DabP9sFNS8x10ulQDi0IsEYuriAUI3z3Gw==}
+  '@aracna/react@1.0.51':
+    resolution: {integrity: sha512-SuWlVVF/Sv1SuxJ4Owh+N/KfqpN3+0YipkV0wcpLvniKGmrCrFCmHlgPbRu9kMzxS8kjXmWQrBd1YCgap5PCMw==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/web': '>= 1.0.0'
       react: '>= 18.2.0'
 
-  '@aracna/state-manager@1.0.38':
-    resolution: {integrity: sha512-sLWnN81PLY4vAfv5iO+MWnNfax2OegEdhGDzxOrSFVPGhEWcX/1C5EPXVfdA7H9UfijTVXnsiouLzlJJ4tQ3vA==}
+  '@aracna/state-manager@1.0.39':
+    resolution: {integrity: sha512-2AUb3M687ZPUC8HzncQPaksObawgMls3/SS+Osdh0YeXto5F81Xk9rJAksAqp4YURjcL4SIWaTQ/iQ3LEERDVg==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
@@ -1618,7 +1618,7 @@ snapshots:
       node-fetch: 3.3.2
       rfc4648: 1.5.3
 
-  '@aracna/react@1.0.50(@aracna/core@1.1.82)(@aracna/web@1.0.75(@aracna/core@1.1.82))(@types/react@18.3.3)(react@18.3.1)':
+  '@aracna/react@1.0.51(@aracna/core@1.1.82)(@aracna/web@1.0.75(@aracna/core@1.1.82))(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@aracna/core': 1.1.82
       '@aracna/web': 1.0.75(@aracna/core@1.1.82)
@@ -1627,7 +1627,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@aracna/state-manager@1.0.38(@aracna/core@1.1.82)':
+  '@aracna/state-manager@1.0.39(@aracna/core@1.1.82)':
     dependencies:
       '@aracna/core': 1.1.82
 

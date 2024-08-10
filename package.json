@@ -2,8 +2,8 @@
   "author": "Dario Sechi",
   "devDependencies": {
     "@aracna/core": "^1.1.82",
-    "@aracna/react": "^1.0.50",
-    "@aracna/state-manager": "^1.0.38",
+    "@aracna/react": "^1.0.51",
+    "@aracna/state-manager": "^1.0.39",
     "@aracna/web": "^1.0.75",
     "@microsoft/api-extractor": "^7.47.5",
     "@testing-library/react": "^16.0.0",
