@@ -1,4 +1,4 @@
-import { ObserverProps } from '../definitions/props.js'
+import type { ObserverProps } from '../definitions/props.js'
 import { useObserver } from '../hooks/use-observer.js'
 
 /**

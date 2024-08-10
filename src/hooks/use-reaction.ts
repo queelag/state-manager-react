@@ -1,5 +1,5 @@
-import { reaction, WatcherReactionEffect, WatcherReactionExpression } from '@aracna/state-manager'
-import { DependencyList, useEffect } from 'react'
+import { reaction, type WatcherReactionEffect, type WatcherReactionExpression } from '@aracna/state-manager'
+import { type DependencyList, useEffect } from 'react'
 
 /**
  * Runs an effect whenever any of the values it references from an observable change inside the expression.

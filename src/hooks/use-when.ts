@@ -1,5 +1,5 @@
-import { WatcherWhenEffect, WatcherWhenPredicate, when } from '@aracna/state-manager'
-import { DependencyList, useEffect } from 'react'
+import { type WatcherWhenEffect, type WatcherWhenPredicate, when } from '@aracna/state-manager'
+import { type DependencyList, useEffect } from 'react'
 
 /**
  * Runs an effect whenever the predicate becomes true.

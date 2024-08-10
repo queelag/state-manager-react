@@ -1,4 +1,4 @@
-import { DependencyList, ReactElement, ReactNode } from 'react'
+import type { DependencyList, ReactElement, ReactNode } from 'react'
 import { useObserver } from '../hooks/use-observer.js'
 
 /**

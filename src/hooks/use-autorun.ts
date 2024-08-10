@@ -1,5 +1,5 @@
-import { autorun, WatcherAutorunEffect } from '@aracna/state-manager'
-import { DependencyList, useEffect } from 'react'
+import { autorun, type WatcherAutorunEffect } from '@aracna/state-manager'
+import { type DependencyList, useEffect } from 'react'
 
 /**
  * Runs an effect immediately and re-runs it whenever any of the values it references from an observable change.

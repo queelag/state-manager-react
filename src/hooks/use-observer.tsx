@@ -1,5 +1,5 @@
 import { useDispatch } from '@aracna/react'
-import { DependencyList, Fragment, ReactElement, ReactNode, useMemo } from 'react'
+import { type DependencyList, Fragment, type ReactElement, type ReactNode, useMemo } from 'react'
 import { useReaction } from './use-reaction.js'
 
 /**

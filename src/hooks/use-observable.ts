@@ -1,7 +1,7 @@
-import { KeyOf, isArray, isPlainObject } from '@aracna/core'
+import { type KeyOf, isArray, isPlainObject } from '@aracna/core'
 import { useDispatch } from '@aracna/react'
 import { observe } from '@aracna/state-manager'
-import { DependencyList, useRef } from 'react'
+import { type DependencyList, useRef } from 'react'
 import { useAutorun } from './use-autorun.js'
 
 /**

@@ -1,4 +1,4 @@
-import { DependencyList, ReactNode } from 'react'
+import type { DependencyList, ReactNode } from 'react'
 
 export interface ObserverProps {
   children: () => ReactNode
