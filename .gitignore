@@ -2,5 +2,9 @@ coverage
 declarations
 dist
 node_modules
+packages/@aracna/core
+packages/@aracna/react
+packages/@aracna/state-manager
+packages/@aracna/web
 
 .DS_Store
