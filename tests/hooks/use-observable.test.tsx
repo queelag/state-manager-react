@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import React, { Fragment, ReactElement } from 'react'
+import { Fragment, ReactElement } from 'react'
 import { describe, expect, it } from 'vitest'
 import { useObservable } from '../../src'
 

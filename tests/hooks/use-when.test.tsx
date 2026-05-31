@@ -1,6 +1,6 @@
 import { WatcherWhenEffect, WatcherWhenPredicate } from '@aracna/state-manager'
 import { render } from '@testing-library/react'
-import React, { Fragment, ReactElement } from 'react'
+import { Fragment, ReactElement } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { useWhen } from '../../src'
 import { Store, getTestStore } from '../get-test-store'

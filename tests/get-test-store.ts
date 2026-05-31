@@ -1,4 +1,4 @@
-import { Environment } from '@aracna/core'
+import { isWindowNotDefined } from '@aracna/core'
 import { observe } from '@aracna/state-manager'
 import dayjs, { Dayjs } from 'dayjs'
 
@@ -28,7 +28,7 @@ export class Store {
   dayjs: Dayjs = dayjs()
 
   constructor() {
-    if (Environment.isWindowNotDefined) {
+    if (isWindowNotDefined()) {
       return
     }
 

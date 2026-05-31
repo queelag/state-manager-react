@@ -1,5 +1,4 @@
 import { act, render, screen } from '@testing-library/react'
-import React from 'react'
 import { describe, expect, it } from 'vitest'
 import { Observer } from '../../src'
 import { Store, getTestStore } from '../get-test-store'
